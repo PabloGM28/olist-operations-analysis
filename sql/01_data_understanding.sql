@@ -63,3 +63,19 @@ FROM `olist-operations-analytics.olist_raw.olist_orders_dataset`
 WHERE
     order_delivered_customer_date IS NOT NULL
     AND order_estimated_delivery_date IS NOT NULL;
+
+-- ============================================================
+-- 4. Create Clean Orders Table
+-- ============================================================
+
+-- Create a clean orders table to ensure consistency
+-- across all subsequent analyses.
+
+CREATE OR REPLACE TABLE `olist-operations-analytics.olist_analysis.clean_orders` AS
+
+SELECT
+    *
+FROM `olist-operations-analytics.olist_raw.olist_orders_dataset`
+WHERE
+    order_delivered_customer_date IS NOT NULL
+    AND order_estimated_delivery_date IS NOT NULL;
