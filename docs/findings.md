@@ -14,8 +14,8 @@
 
 | Metric              | Value                |
 | ------------------- | -------------------- |
-| Earliest Order Date | *(add query result)* |
-| Latest Order Date   | *(add query result)* |
+| Earliest Order Date | 2016-09-04 21:15:19 UTC |
+| Latest Order Date   | 2018-10-17 17:30:18 UTC |
 
 ---
 
