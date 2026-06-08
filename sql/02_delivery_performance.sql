@@ -1,0 +1,9 @@
+-- ============================================================
+-- 02_delivery_performance.sql
+-- Project: Olist Operations Analytics
+-- Purpose:
+--   Analyze the overall efficiency of the delivery process.
+--
+-- Business Question:
+--   How efficient is the delivery process overall?
+-- ============================================================
