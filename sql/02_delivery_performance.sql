@@ -51,3 +51,28 @@ SELECT
     ) AS average_delivery_time_days
 
 FROM `olist-operations-analytics.olist_analysis.clean_orders`;
+-- ============================================================
+-- KPI 5: Average Delay Time
+-- ============================================================
+
+-- Definition:
+-- Average number of days late among delayed orders only.
+
+WITH only_delays AS (
+    SELECT *
+    FROM `olist-operations-analytics.olist_analysis.clean_orders`
+
+    WHERE DATE(order_delivered_customer_date)
+          > DATE(order_estimated_delivery_date)
+)
+
+SELECT
+    AVG(
+        DATE_DIFF(
+            DATE(order_delivered_customer_date),
+            DATE(order_estimated_delivery_date),
+            DAY
+        )
+    ) AS average_delay_time_days
+
+FROM only_delays;
