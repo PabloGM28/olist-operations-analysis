@@ -33,3 +33,21 @@ SELECT
   SAFE_DIVIDE (COUNT(CASE WHEN order_delivered_customer_date <= order_estimated_delivery_date THEN 1 END),COUNT(*)) AS on_time_delivery_rate,
   SAFE_DIVIDE (COUNT(CASE WHEN order_delivered_customer_date > order_estimated_delivery_date THEN 1 END),COUNT(*)) AS delayed_deliveries_rate  
 FROM `olist-operations-analytics.olist_analysis.clean_orders`
+-- ============================================================
+-- KPI 4: Average Delivery Time
+-- ============================================================
+
+-- Definition:
+-- Average number of days between purchase date and
+-- actual customer delivery date.
+
+SELECT
+    AVG(
+        DATE_DIFF(
+            DATE(order_delivered_customer_date),
+            DATE(order_purchase_timestamp),
+            DAY
+        )
+    ) AS average_delivery_time_days
+
+FROM `olist-operations-analytics.olist_analysis.clean_orders`;
