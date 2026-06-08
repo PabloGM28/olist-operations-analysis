@@ -50,4 +50,4 @@ were retained because this field is not required to evaluate whether the custome
 
 | Metric                      |                Value |
 | --------------------------- | -------------------: |
-| Valid Orders After Cleaning | *(add query result)* |
+| Valid Orders After Cleaning | 96476 |
