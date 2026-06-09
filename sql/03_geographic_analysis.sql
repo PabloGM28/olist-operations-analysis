@@ -60,3 +60,25 @@ INNER JOIN `olist-operations-analytics.olist_analysis.clean_customers` AS c
   ON o.customer_id = c.customer_id
 GROUP BY c.customer_state
 ORDER BY total_orders_by_state DESC;
+-- ============================================================
+-- KPI 4: Average Delay Time by State
+-- ============================================================
+
+-- Definition:
+-- Average number of days late among delayed orders only,
+-- calculated by customer state.
+--
+-- Purpose:
+-- Measure the severity of delivery delays by state. This helps
+-- distinguish between states with frequent but minor delays and
+-- states with less frequent but more severe delays.
+
+SELECT  
+  c.customer_state AS state,
+  COUNT(*) AS total_orders_by_state,
+  AVG (CASE WHEN o.order_delivered_customer_date > o.order_estimated_delivery_date THEN DATE_DIFF(DATE(o.order_delivered_customer_date),DATE(o.order_estimated_delivery_date),DAY) END) AS average_delay_time_days
+FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
+INNER JOIN `olist-operations-analytics.olist_analysis.clean_customers` AS c
+  ON o.customer_id = c.customer_id
+GROUP BY c.customer_state
+ORDER BY total_orders_by_state DESC;
