@@ -61,7 +61,28 @@ INNER JOIN `olist-operations-analytics.olist_analysis.clean_customers` AS c
 GROUP BY c.customer_state
 ORDER BY total_orders_by_state DESC;
 -- ============================================================
--- KPI 4: Average Delay Time by State
+-- KPI 4: Average Delivery Time by State
+-- ============================================================
+
+-- Definition:
+-- Average number of days between purchase date and
+-- customer delivery date by state.
+--
+-- Purpose:
+-- Measure the overall efficiency of the delivery process
+-- across different regions.
+
+SELECT  
+  c.customer_state AS state,
+  COUNT(*) AS total_orders_by_state,
+  AVG (DATE_DIFF(DATE(o.order_delivered_customer_date),DATE(o.order_purchase_timestamp),DAY)) AS average_delivery_time_days
+FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
+INNER JOIN `olist-operations-analytics.olist_analysis.clean_customers` AS c
+  ON o.customer_id = c.customer_id
+GROUP BY c.customer_state
+ORDER BY total_orders_by_state DESC;
+-- ============================================================
+-- KPI 5: Average Delay Time by State
 -- ============================================================
 
 -- Definition:
