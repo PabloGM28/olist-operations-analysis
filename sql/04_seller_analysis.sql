@@ -35,8 +35,23 @@ ORDER BY total_orders_per_seller DESC
 
   s.seller_id AS seller,
   COUNT(o.order_id) AS total_orders,
-  AVG(DATE_DIFF(DATE(o.order_delivered_customer_date),DATE(o.order_purchase_timestamp),DAY)) AS average_delivery_time
+  AVG(DATE_DIFF(DATE(o.order_delivered_customer_date),DATE(o.order_purchase_timestamp),DAY)) AS average_delivery_time_days
   
+FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
+INNER JOIN `olist-operations-analytics.olist_analysis.clean_order_items` AS s
+ON o.order_id=s.order_id
+
+GROUP BY s.seller_id
+ORDER BY total_orders DESC
+-- ============================================================
+-- KPI 5: Average Delay Time by Seller
+-- ============================================================
+  SELECT  
+
+  s.seller_id AS seller,
+  COUNT(o.order_id) AS total_orders,
+  AVG(CASE WHEN DATE(o.order_delivered_customer_date) > DATE (o.order_estimated_delivery_date) THEN DATE_DIFF(DATE(o.order_delivered_customer_date),DATE(o.order_estimated_delivery_date),DAY) END) AS average_delay_time_days
+
 FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
 INNER JOIN `olist-operations-analytics.olist_analysis.clean_order_items` AS s
 ON o.order_id=s.order_id
