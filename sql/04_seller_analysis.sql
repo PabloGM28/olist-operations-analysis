@@ -1,5 +1,6 @@
-KPI 1 Orders by seller
-
+-- ============================================================
+-- KPI 1: Number of Orders by Seller
+-- ============================================================
 SELECT  
   s.seller_id AS seller,
   COUNT(o.order_id) AS total_orders_per_seller
@@ -10,3 +11,6 @@ ON o.order_id=s.order_id
 
 GROUP BY s.seller_id
 ORDER BY total_orders_per_seller DESC
+-- ============================================================
+-- KPI 2: Delayed Delivery Rate by Seller
+-- ============================================================
