@@ -84,3 +84,29 @@ ORDER BY
 -- ============================================================
 -- KPI 4: Review Response Rate by Delivery Status
 -- ============================================================
+WITH categorized_deliveries AS (
+
+  SELECT
+    order_id,
+    customer_id,
+    order_status,
+    order_purchase_timestamp,
+    order_approved_at,
+    order_delivered_carrier_date,
+    order_delivered_customer_date,
+    order_estimated_delivery_date,
+    CASE
+      WHEN order_delivered_customer_date<=order_estimated_delivery_date THEN "ON_TIME"
+      ELSE "DELAYED"
+    END AS delivery_status
+    FROM `olist-operations-analytics.olist_analysis.clean_orders`
+)
+
+SELECT
+  c.delivery_status,
+  COUNT(c.order_id) AS total_orders,
+  ROUND(SAFE_DIVIDE(COUNT(r.review_id),COUNT(c.order_id))*100,2) AS response_rate
+FROM categorized_deliveries AS c
+LEFT JOIN `olist-operations-analytics.olist_analysis.clean_order_reviews` AS r
+  ON c.order_id=r.order_id
+GROUP BY delivery_status
