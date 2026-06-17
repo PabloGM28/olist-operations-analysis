@@ -1,6 +1,27 @@
 -- ============================================================
--- KPI 1: Number of Orders by Seller
+-- 05_product_category_analysis.sql
+-- Project: Olist Operations Analytics
+-- Purpose:
+--   Analyze delivery performance by product category.
+--
+-- Business Question:
+--   Which product categories experience the worst operational performance?
 -- ============================================================
+
+
+-- ============================================================
+-- KPI 1: Number of Orders by Product Category
+-- ============================================================
+
+-- Definition:
+-- Total number of orders by product category.
+--
+-- Purpose:
+-- Before analyzing delivery performance, we first need to
+-- understand the order volume associated with each category.
+-- This prevents overinterpreting categories with very small
+-- sample sizes.
+
 SELECT  
   p.product_category_name_english AS product_category_name,
   COUNT(o.order_id) AS total_orders
@@ -11,9 +32,20 @@ ON o.order_id=p.order_id
 
 GROUP BY p.product_category_name_english
 ORDER BY total_orders DESC
+
+
 -- ============================================================
--- KPI 2 & 3: On time & Delayed Delivery Rate by Product Category
+-- KPI 2 & 3: On-Time & Delayed Delivery Rate by Product Category
 -- ============================================================
+
+-- Definition:
+-- Percentage of orders delivered on time and delayed orders
+-- for each product category.
+--
+-- Purpose:
+-- Measure delivery reliability and identify categories that
+-- experience the highest proportion of delays.
+
 SELECT  
   p.product_category_name_english AS product_category_name,
   COUNT(o.order_id) AS total_orders,
@@ -26,9 +58,20 @@ ON o.order_id=p.order_id
 
 GROUP BY p.product_category_name_english
 ORDER BY total_orders DESC
+
+
 -- ============================================================
 -- KPI 4: Average Delivery Time by Product Category
 -- ============================================================
+
+-- Definition:
+-- Average number of days between purchase and customer delivery
+-- for each product category.
+--
+-- Purpose:
+-- Identify categories that require longer delivery times and
+-- evaluate operational efficiency across product types.
+
 SELECT  
   p.product_category_name_english AS product_category_name,
   COUNT(o.order_id) AS total_orders,
@@ -40,9 +83,20 @@ ON o.order_id=p.order_id
 
 GROUP BY p.product_category_name_english
 ORDER BY total_orders DESC
+
+
 -- ============================================================
 -- KPI 5: Average Delay Time by Product Category
 -- ============================================================
+
+-- Definition:
+-- Average number of delay days for delayed orders only,
+-- grouped by product category.
+--
+-- Purpose:
+-- Evaluate the severity of delays and determine which categories
+-- suffer the longest disruptions once a delay occurs.
+
 SELECT  
   p.product_category_name_english AS product_category_name,
   COUNT(o.order_id) AS total_orders,
@@ -54,9 +108,19 @@ ON o.order_id=p.order_id
 
 GROUP BY p.product_category_name_english
 ORDER BY total_orders DESC
+
+
 -- ============================================================
--- KPI 6: Delayed orders by Product Category
+-- KPI 6: Delayed Orders by Product Category
 -- ============================================================
+
+-- Definition:
+-- Total number and percentage of delayed orders by product category.
+--
+-- Purpose:
+-- Identify categories that contribute the most to overall
+-- delivery inefficiencies from a business impact perspective.
+
 SELECT  
   p.product_category_name_english AS product_category_name,
   COUNT(o.order_id) AS total_orders,
