@@ -1,6 +1,26 @@
 -- ============================================================
+-- 06_customer_satisfaction.sql
+-- Project: Olist Operations Analytics
+-- Purpose:
+--   Analyze how delivery performance affects customer satisfaction.
+--
+-- Business Question:
+--   How do delivery delays affect customer satisfaction?
+-- ============================================================
+
+
+-- ============================================================
 -- KPI 1: Average Review Score by Delivery Status
 -- ============================================================
+
+-- Definition:
+-- Average customer review score for on-time deliveries and
+-- delayed deliveries.
+--
+-- Purpose:
+-- Compare customer satisfaction between orders delivered on time
+-- and orders delivered after the promised delivery date.
+
 SELECT  
   ROUND(AVG(CASE WHEN o.order_delivered_customer_date<=o.order_estimated_delivery_date THEN r.review_score END),1) AS average_on_time_review,
   ROUND(AVG(CASE WHEN o.order_delivered_customer_date>o.order_estimated_delivery_date THEN r.review_score END),1) AS average_delayed_review  
@@ -8,9 +28,20 @@ SELECT
 FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
 INNER JOIN `olist-operations-analytics.olist_analysis.clean_order_reviews` AS r
   ON o.order_id=r.order_id
+
+
 -- ============================================================
 -- KPI 2: Review Score Distriburion by Delivery Status
 -- ============================================================
+
+-- Definition:
+-- Percentage distribution of review scores from 1 to 5 stars,
+-- split by delivery status.
+--
+-- Purpose:
+-- Understand whether delayed deliveries change the pattern of
+-- customer ratings compared with on-time deliveries.
+
 WITH categorized_deliveries AS (
 
   SELECT
@@ -40,9 +71,19 @@ FROM `categorized_deliveries` AS c
 INNER JOIN `olist-operations-analytics.olist_analysis.clean_order_reviews` AS r
   ON c.order_id=r.order_id
 GROUP BY delivery_status
+
+
 -- ============================================================
 -- KPI 3: Average Review Score by Delay Severity Group
 -- ============================================================
+
+-- Definition:
+-- Average review score by delay severity group.
+--
+-- Purpose:
+-- Evaluate whether customer satisfaction decreases progressively
+-- as delivery delays become more severe.
+
 WITH categorized_deliveries AS (
 
   SELECT
@@ -81,9 +122,20 @@ ORDER BY
     WHEN '8-14_DAYS' THEN 4
     WHEN '>14_DAYS' THEN 5
   END;
+
+
 -- ============================================================
 -- KPI 4: Review Response Rate by Delivery Status
 -- ============================================================
+
+-- Definition:
+-- Percentage of orders with a customer review, split by delivery
+-- status.
+--
+-- Purpose:
+-- Analyze whether customers with delayed deliveries are more likely
+-- to leave a review.
+
 WITH categorized_deliveries AS (
 
   SELECT
