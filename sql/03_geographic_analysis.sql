@@ -23,7 +23,8 @@
 
 SELECT  
     c.customer_state AS state,
-    COUNT(o.order_id) AS total_orders
+    COUNT(o.order_id) AS total_orders,
+    SAFE_DIVIDE(COUNT(o.order_id),SUM(COUNT(o.order_id)) OVER()) AS percentage_of_total
 
 FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
 
@@ -51,6 +52,7 @@ ORDER BY total_orders DESC;
 SELECT  
   c.customer_state AS state,
   COUNT(*) AS total_orders_by_state,
+  SAFE_DIVIDE(COUNT(o.order_id),SUM(COUNT(o.order_id)) OVER()) AS percentage_of_total,
   COUNT(CASE WHEN o.order_delivered_customer_date <= o.order_estimated_delivery_date THEN 1 END) AS on_time_orders,
   COUNT(CASE WHEN o.order_delivered_customer_date > o.order_estimated_delivery_date THEN 1 END) AS delayed_orders,
   SAFE_DIVIDE(COUNT(CASE WHEN o.order_delivered_customer_date <= o.order_estimated_delivery_date THEN 1 END),COUNT(*)) AS on_time_delivery_rate,
@@ -75,6 +77,7 @@ ORDER BY total_orders_by_state DESC;
 SELECT  
   c.customer_state AS state,
   COUNT(*) AS total_orders_by_state,
+  SAFE_DIVIDE(COUNT(o.order_id),SUM(COUNT(o.order_id)) OVER()) AS percentage_of_total,
   AVG (DATE_DIFF(DATE(o.order_delivered_customer_date),DATE(o.order_purchase_timestamp),DAY)) AS average_delivery_time_days
 FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
 INNER JOIN `olist-operations-analytics.olist_analysis.clean_customers` AS c
@@ -97,6 +100,7 @@ ORDER BY total_orders_by_state DESC;
 SELECT  
   c.customer_state AS state,
   COUNT(*) AS total_orders_by_state,
+  SAFE_DIVIDE(COUNT(o.order_id),SUM(COUNT(o.order_id)) OVER()) AS percentage_of_total,
   AVG (CASE WHEN o.order_delivered_customer_date > o.order_estimated_delivery_date THEN DATE_DIFF(DATE(o.order_delivered_customer_date),DATE(o.order_estimated_delivery_date),DAY) END) AS average_delay_time_days
 FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
 INNER JOIN `olist-operations-analytics.olist_analysis.clean_customers` AS c
