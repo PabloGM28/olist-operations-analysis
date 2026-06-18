@@ -62,11 +62,11 @@ WITH categorized_deliveries AS (
 
 SELECT
   c.delivery_status,
-  ROUND(SAFE_DIVIDE(COUNT(CASE WHEN r.review_score=1 THEN 1 END),COUNT(*))*100,2) AS one_star_reviews_percentage,
-  ROUND(SAFE_DIVIDE(COUNT(CASE WHEN r.review_score=2 THEN 1 END),COUNT(*))*100,2) AS two_star_reviews_percentage,
-  ROUND(SAFE_DIVIDE(COUNT(CASE WHEN r.review_score=3 THEN 1 END),COUNT(*))*100,2) AS three_star_reviews_percentage,
-  ROUND(SAFE_DIVIDE(COUNT(CASE WHEN r.review_score=4 THEN 1 END),COUNT(*))*100,2) AS four_star_reviews_percentage,
-  ROUND(SAFE_DIVIDE(COUNT(CASE WHEN r.review_score=5 THEN 1 END),COUNT(*))*100,2) AS five_star_reviews_percentage
+  ROUND(SAFE_DIVIDE(COUNT(CASE WHEN r.review_score=1 THEN 1 END),COUNT(*)),2) AS one_star_reviews_percentage,
+  ROUND(SAFE_DIVIDE(COUNT(CASE WHEN r.review_score=2 THEN 1 END),COUNT(*)),2) AS two_star_reviews_percentage,
+  ROUND(SAFE_DIVIDE(COUNT(CASE WHEN r.review_score=3 THEN 1 END),COUNT(*)),2) AS three_star_reviews_percentage,
+  ROUND(SAFE_DIVIDE(COUNT(CASE WHEN r.review_score=4 THEN 1 END),COUNT(*)),2) AS four_star_reviews_percentage,
+  ROUND(SAFE_DIVIDE(COUNT(CASE WHEN r.review_score=5 THEN 1 END),COUNT(*)),2) AS five_star_reviews_percentage
 FROM `categorized_deliveries` AS c
 INNER JOIN `olist-operations-analytics.olist_analysis.clean_order_reviews` AS r
   ON c.order_id=r.order_id
@@ -109,7 +109,7 @@ SELECT
   c.delay_group,
   AVG(r.review_score) AS average_review_score,
   COUNT(c.order_id) AS total_orders,
-  SAFE_DIVIDE(COUNT(c.order_id),SUM(COUNT(c.order_id)) OVER())*100 AS percentage_of_total
+  SAFE_DIVIDE(COUNT(c.order_id),SUM(COUNT(c.order_id)) OVER()) AS percentage_of_total
 FROM categorized_deliveries AS c
 INNER JOIN `olist-operations-analytics.olist_analysis.clean_order_reviews` AS r
   ON c.order_id=r.order_id
@@ -157,7 +157,8 @@ WITH categorized_deliveries AS (
 SELECT
   c.delivery_status,
   COUNT(c.order_id) AS total_orders,
-  ROUND(SAFE_DIVIDE(COUNT(r.review_id),COUNT(c.order_id))*100,2) AS response_rate
+  SAFE_DIVIDE(COUNT(c.order_id),SUM(COUNT(c.order_id)) OVER()) AS percentage_of_total,
+  ROUND(SAFE_DIVIDE(COUNT(r.review_id),COUNT(c.order_id)),2) AS response_rate
 FROM categorized_deliveries AS c
 LEFT JOIN `olist-operations-analytics.olist_analysis.clean_order_reviews` AS r
   ON c.order_id=r.order_id
