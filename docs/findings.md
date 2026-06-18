@@ -258,3 +258,151 @@ From a business impact perspective, Rio de Janeiro emerges as the most relevant 
 From an operational complexity perspective, several smaller and more remote states show much worse service levels, with longer delivery times and severe delays despite representing a very small share of total orders.
 
 By contrast, São Paulo represents the operational benchmark, achieving both scale and strong delivery performance.
+# 4. Seller Performance
+
+## Business Question
+
+**Which sellers contribute the most to delivery inefficiencies?**
+
+---
+
+## Scope of Analysis
+
+The dataset contains **2,970 sellers**, so including every seller in the report would reduce readability and make the analysis difficult to interpret.
+
+For this reason, this section focuses on the **Top 20 sellers by order volume**. This criterion was selected because high-volume sellers have the greatest potential business impact.
+
+The same Top 20 sellers are used consistently across all KPIs to ensure comparability between volume, delivery reliability, delivery time and delay severity.
+
+---
+
+## KPI 1 - Order Volume by Seller
+
+| Seller | Total Orders | % of Total Orders |
+|:---|---:|---:|
+| 6560211a19b47992c3666cc44a7e94c0 | 1,996 | 1.81% |
+| 4a3ca9315b744ce9f8e9374361493884 | 1,949 | 1.77% |
+| 1f50f920176fa81dab994f9023523100 | 1,926 | 1.75% |
+| cc419e0650a3c5ba77189a1882b7556a | 1,719 | 1.56% |
+| da8622b14eb17ae2831f4ac5b9dab84a | 1,548 | 1.40% |
+| 955fee9216a65b617aa5c0531780ce60 | 1,472 | 1.34% |
+| 1025f0e2d44d7041d6cf58b6550e0bfa | 1,420 | 1.29% |
+| 7c67e1448b00f6e969d365cea6b010ab | 1,355 | 1.23% |
+| ea8482cd71df3c1969d7b9473ff13abc | 1,188 | 1.08% |
+| 7a67c85e85bb2ce8582c35f2203ad736 | 1,155 | 1.05% |
+| 4869f7a5dfa277a7dca6462dcf3b52b2 | 1,148 | 1.04% |
+| 3d871de0142ce09b7081e2b9d1733cb1 | 1,131 | 1.03% |
+| 8b321bb669392f5163d04c59e235e066 | 1,005 | 0.91% |
+| cca3071e3e9bb7d12640c9fbe2301306 | 817 | 0.74% |
+| 620c87c171fb2a6dd6e8bb4dec959fc6 | 781 | 0.71% |
+| a1043bafd471dff536d0c462352beb48 | 752 | 0.68% |
+| e9779976487b77c6d4ac45f75ec7afe9 | 738 | 0.67% |
+| f8db351d8c4c4c22c6835c19a46f01b0 | 714 | 0.65% |
+| d2374cbcbb3ca4ab1086534108cc3ab7 | 620 | 0.56% |
+| 391fc6631aebcf3004804e51b40bcf1e | 605 | 0.55% |
+
+---
+
+## KPI 2 & KPI 3 - Delivery Reliability by Seller
+
+| Seller | Total Orders | % of Total Orders | On-Time Orders | Delayed Orders | On-Time Rate | Delayed Rate |
+|:---|---:|---:|---:|---:|---:|---:|
+| 6560211a19b47992c3666cc44a7e94c0 | 1,996 | 1.81% | 1,872 | 124 | 93.79% | 6.21% |
+| 4a3ca9315b744ce9f8e9374361493884 | 1,949 | 1.77% | 1,735 | 214 | 89.02% | 10.98% |
+| 1f50f920176fa81dab994f9023523100 | 1,926 | 1.75% | 1,744 | 182 | 90.55% | 9.45% |
+| cc419e0650a3c5ba77189a1882b7556a | 1,719 | 1.56% | 1,616 | 103 | 94.01% | 5.99% |
+| da8622b14eb17ae2831f4ac5b9dab84a | 1,548 | 1.40% | 1,435 | 113 | 92.70% | 7.30% |
+| 955fee9216a65b617aa5c0531780ce60 | 1,472 | 1.34% | 1,353 | 119 | 91.92% | 8.08% |
+| 1025f0e2d44d7041d6cf58b6550e0bfa | 1,420 | 1.29% | 1,289 | 131 | 90.77% | 9.23% |
+| 7c67e1448b00f6e969d365cea6b010ab | 1,355 | 1.23% | 1,225 | 130 | 90.41% | 9.59% |
+| ea8482cd71df3c1969d7b9473ff13abc | 1,188 | 1.08% | 1,065 | 123 | 89.65% | 10.35% |
+| 7a67c85e85bb2ce8582c35f2203ad736 | 1,155 | 1.05% | 1,087 | 68 | 94.11% | 5.89% |
+| 4869f7a5dfa277a7dca6462dcf3b52b2 | 1,148 | 1.04% | 1,015 | 133 | 88.41% | 11.59% |
+| 3d871de0142ce09b7081e2b9d1733cb1 | 1,131 | 1.03% | 1,064 | 67 | 94.08% | 5.92% |
+| 8b321bb669392f5163d04c59e235e066 | 1,005 | 0.91% | 902 | 103 | 89.75% | 10.25% |
+| cca3071e3e9bb7d12640c9fbe2301306 | 817 | 0.74% | 773 | 44 | 94.61% | 5.39% |
+| 620c87c171fb2a6dd6e8bb4dec959fc6 | 781 | 0.71% | 707 | 74 | 90.52% | 9.48% |
+| a1043bafd471dff536d0c462352beb48 | 752 | 0.68% | 710 | 42 | 94.41% | 5.59% |
+| e9779976487b77c6d4ac45f75ec7afe9 | 738 | 0.67% | 683 | 55 | 92.55% | 7.45% |
+| f8db351d8c4c4c22c6835c19a46f01b0 | 714 | 0.65% | 672 | 42 | 94.12% | 5.88% |
+| d2374cbcbb3ca4ab1086534108cc3ab7 | 620 | 0.56% | 587 | 33 | 94.68% | 5.32% |
+| 391fc6631aebcf3004804e51b40bcf1e | 605 | 0.55% | 547 | 58 | 90.41% | 9.59% |
+
+---
+
+## KPI 4 - Average Delivery Time by Seller
+
+| Seller | Total Orders | % of Total Orders | Average Delivery Time (days) |
+|:---|---:|---:|---:|
+| 6560211a19b47992c3666cc44a7e94c0 | 1,996 | 1.81% | 9.47 |
+| 4a3ca9315b744ce9f8e9374361493884 | 1,949 | 1.77% | 14.37 |
+| 1f50f920176fa81dab994f9023523100 | 1,926 | 1.75% | 15.48 |
+| cc419e0650a3c5ba77189a1882b7556a | 1,719 | 1.56% | 11.49 |
+| da8622b14eb17ae2831f4ac5b9dab84a | 1,548 | 1.40% | 11.11 |
+| 955fee9216a65b617aa5c0531780ce60 | 1,472 | 1.34% | 10.67 |
+| 1025f0e2d44d7041d6cf58b6550e0bfa | 1,420 | 1.29% | 12.00 |
+| 7c67e1448b00f6e969d365cea6b010ab | 1,355 | 1.23% | 22.33 |
+| ea8482cd71df3c1969d7b9473ff13abc | 1,188 | 1.08% | 13.22 |
+| 7a67c85e85bb2ce8582c35f2203ad736 | 1,155 | 1.05% | 11.14 |
+| 4869f7a5dfa277a7dca6462dcf3b52b2 | 1,148 | 1.04% | 14.94 |
+| 3d871de0142ce09b7081e2b9d1733cb1 | 1,131 | 1.03% | 13.35 |
+| 8b321bb669392f5163d04c59e235e066 | 1,005 | 0.91% | 12.54 |
+| cca3071e3e9bb7d12640c9fbe2301306 | 817 | 0.74% | 14.25 |
+| 620c87c171fb2a6dd6e8bb4dec959fc6 | 781 | 0.71% | 12.84 |
+| a1043bafd471dff536d0c462352beb48 | 752 | 0.68% | 13.55 |
+| e9779976487b77c6d4ac45f75ec7afe9 | 738 | 0.67% | 9.77 |
+| f8db351d8c4c4c22c6835c19a46f01b0 | 714 | 0.65% | 9.89 |
+| d2374cbcbb3ca4ab1086534108cc3ab7 | 620 | 0.56% | 14.25 |
+| 391fc6631aebcf3004804e51b40bcf1e | 605 | 0.55% | 14.23 |
+
+---
+
+## KPI 5 - Average Delay Time by Seller
+
+| Seller | Total Orders | % of Total Orders | Average Delay Time (days) |
+|:---|---:|---:|---:|
+| 6560211a19b47992c3666cc44a7e94c0 | 1,996 | 1.81% | 7.55 |
+| 4a3ca9315b744ce9f8e9374361493884 | 1,949 | 1.77% | 11.05 |
+| 1f50f920176fa81dab994f9023523100 | 1,926 | 1.75% | 10.47 |
+| cc419e0650a3c5ba77189a1882b7556a | 1,719 | 1.56% | 7.85 |
+| da8622b14eb17ae2831f4ac5b9dab84a | 1,548 | 1.40% | 10.85 |
+| 955fee9216a65b617aa5c0531780ce60 | 1,472 | 1.34% | 7.92 |
+| 1025f0e2d44d7041d6cf58b6550e0bfa | 1,420 | 1.29% | 7.06 |
+| 7c67e1448b00f6e969d365cea6b010ab | 1,355 | 1.23% | 10.90 |
+| ea8482cd71df3c1969d7b9473ff13abc | 1,188 | 1.08% | 8.10 |
+| 7a67c85e85bb2ce8582c35f2203ad736 | 1,155 | 1.05% | 12.70 |
+| 4869f7a5dfa277a7dca6462dcf3b52b2 | 1,148 | 1.04% | 9.24 |
+| 3d871de0142ce09b7081e2b9d1733cb1 | 1,131 | 1.03% | 9.73 |
+| 8b321bb669392f5163d04c59e235e066 | 1,005 | 0.91% | 9.36 |
+| cca3071e3e9bb7d12640c9fbe2301306 | 817 | 0.74% | 18.62 |
+| 620c87c171fb2a6dd6e8bb4dec959fc6 | 781 | 0.71% | 10.68 |
+| a1043bafd471dff536d0c462352beb48 | 752 | 0.68% | 9.70 |
+| e9779976487b77c6d4ac45f75ec7afe9 | 738 | 0.67% | 12.76 |
+| f8db351d8c4c4c22c6835c19a46f01b0 | 714 | 0.65% | 6.94 |
+| d2374cbcbb3ca4ab1086534108cc3ab7 | 620 | 0.56% | 7.37 |
+| 391fc6631aebcf3004804e51b40bcf1e | 605 | 0.55% | 9.12 |
+
+---
+
+## Key Findings
+
+- Seller performance varies meaningfully among the highest-volume sellers.
+- The largest seller, `6560211a19b47992c3666cc44a7e94c0`, handles **1,996 orders**, representing **1.81% of total orders**, while maintaining a strong **93.79% on-time delivery rate** and an average delivery time of **9.47 days**.
+- Seller `4a3ca9315b744ce9f8e9374361493884` is one of the most relevant underperformers from a business impact perspective. It handles **1,949 orders**, represents **1.77% of total orders**, and shows a **10.98% delayed delivery rate**.
+- Seller `1f50f920176fa81dab994f9023523100` also combines high order volume with weaker operational performance, handling **1,926 orders** with an average delivery time of **15.48 days** and a **9.45% delayed delivery rate**.
+- Seller `4869f7a5dfa277a7dca6462dcf3b52b2` has the highest delayed delivery rate among the Top 20 sellers, at **11.59%**, while representing **1.04% of total orders**.
+- Seller `7c67e1448b00f6e969d365cea6b010ab` stands out for its very long average delivery time of **22.33 days**, despite representing only **1.23% of total orders**.
+- Seller `cca3071e3e9bb7d12640c9fbe2301306` has a relatively low delayed delivery rate of **5.39%**, but when delays occur, they are severe, with an average delay time of **18.62 days**.
+- Several high-volume sellers maintain strong reliability, suggesting that seller-level delivery problems are concentrated in a subset of sellers rather than being evenly distributed across the marketplace.
+
+---
+
+## Insight
+
+Delivery inefficiencies are not evenly distributed across sellers.
+
+From a business impact perspective, sellers such as `4a3ca9315b744ce9f8e9374361493884`, `1f50f920176fa81dab994f9023523100`, and `4869f7a5dfa277a7dca6462dcf3b52b2` deserve particular attention because they combine relatively high order volume with weaker delivery reliability.
+
+From an operational severity perspective, sellers such as `7c67e1448b00f6e969d365cea6b010ab` and `cca3071e3e9bb7d12640c9fbe2301306` show especially long delivery or delay durations, suggesting deeper logistical bottlenecks.
+
+Overall, seller-level performance monitoring could help prioritize operational improvements among the sellers with the greatest business impact.
