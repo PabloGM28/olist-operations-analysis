@@ -406,3 +406,211 @@ From a business impact perspective, sellers such as `4a3ca9315b744ce9f8e93743614
 From an operational severity perspective, sellers such as `7c67e1448b00f6e969d365cea6b010ab` and `cca3071e3e9bb7d12640c9fbe2301306` show especially long delivery or delay durations, suggesting deeper logistical bottlenecks.
 
 Overall, seller-level performance monitoring could help prioritize operational improvements among the sellers with the greatest business impact.
+# 5. Product Category Performance
+
+## Business Question
+
+**Which product categories experience the worst operational performance?**
+
+---
+
+## Scope of Analysis
+
+This section includes all product categories available in the query results.
+
+The analysis evaluates both business impact and operational performance. For this reason, each KPI includes the total number of orders and the percentage of total orders represented by each category.
+
+---
+
+## KPI 1 - Order Volume by Product Category
+
+| Product Category | Total Orders | % of Total Orders |
+|:---|---:|---:|
+| bed_bath_table | 10,953 | 9.94% |
+| health_beauty | 9,467 | 8.59% |
+| sports_leisure | 8,431 | 7.65% |
+| furniture_decor | 8,160 | 7.40% |
+| computers_accessories | 7,643 | 6.94% |
+| housewares | 6,795 | 6.17% |
+| watches_gifts | 5,857 | 5.32% |
+| telephony | 4,430 | 4.02% |
+| garden_tools | 4,268 | 3.87% |
+| auto | 4,139 | 3.76% |
+| toys | 4,030 | 3.66% |
+| cool_stuff | 3,718 | 3.37% |
+| perfumery | 3,342 | 3.03% |
+| baby | 2,982 | 2.71% |
+| electronics | 2,729 | 2.48% |
+| stationery | 2,466 | 2.24% |
+| fashion_bags_accessories | 1,986 | 1.80% |
+| pet_shop | 1,924 | 1.75% |
+| office_furniture | 1,668 | 1.51% |
+| nan | 1,559 | 1.41% |
+| consoles_games | 1,089 | 0.99% |
+| luggage_accessories | 1,077 | 0.98% |
+| construction_tools_construction | 916 | 0.83% |
+| home_appliances | 754 | 0.68% |
+| small_appliances | 658 | 0.60% |
+| musical_instruments | 651 | 0.59% |
+| home_construction | 596 | 0.54% |
+| books_general_interest | 536 | 0.49% |
+| food | 499 | 0.45% |
+| furniture_living_room | 495 | 0.45% |
+| home_confort | 429 | 0.39% |
+| audio | 362 | 0.33% |
+| drinks | 361 | 0.33% |
+| market_place | 305 | 0.28% |
+| construction_tools_lights | 301 | 0.27% |
+| air_conditioning | 289 | 0.26% |
+| kitchen_dining_laundry_garden_furniture | 274 | 0.25% |
+| food_drink | 269 | 0.24% |
+| industry_commerce_and_business | 264 | 0.24% |
+| books_technical | 263 | 0.24% |
+| fashion_shoes | 257 | 0.23% |
+| fixed_telephony | 255 | 0.23% |
+| costruction_tools_garden | 232 | 0.21% |
+| home_appliances_2 | 231 | 0.21% |
+| agro_industry_and_commerce | 206 | 0.19% |
+| computers | 199 | 0.18% |
+| art | 197 | 0.18% |
+| signaling_and_security | 197 | 0.18% |
+| construction_tools_safety | 183 | 0.17% |
+| christmas_supplies | 150 | 0.14% |
+| fashion_underwear_beach | 127 | 0.12% |
+| fashion_male_clothing | 125 | 0.11% |
+| costruction_tools_tools | 103 | 0.09% |
+| furniture_bedroom | 103 | 0.09% |
+| tablets_printing_image | 83 | 0.08% |
+| small_appliances_home_oven_and_coffee | 73 | 0.07% |
+| cine_photo | 70 | 0.06% |
+| dvds_blu_ray | 61 | 0.06% |
+| books_imported | 57 | 0.05% |
+| fashio_female_clothing | 45 | 0.04% |
+| party_supplies | 42 | 0.04% |
+| music | 38 | 0.03% |
+| furniture_mattress_and_upholstery | 37 | 0.03% |
+| diapers_and_hygiene | 37 | 0.03% |
+| flowers | 33 | 0.03% |
+| home_comfort_2 | 30 | 0.03% |
+| fashion_sport | 29 | 0.03% |
+| arts_and_craftmanship | 24 | 0.02% |
+| la_cuisine | 14 | 0.01% |
+| cds_dvds_musicals | 14 | 0.01% |
+| fashion_childrens_clothes | 7 | 0.01% |
+| security_and_services | 2 | 0.00% |
+
+---
+
+## KPI 2 & KPI 3 - Delivery Reliability by Product Category
+
+| Product Category | Total Orders | % of Total Orders | On-Time Orders | Delayed Orders | On-Time Rate | Delayed Rate |
+|:---|---:|---:|---:|---:|---:|---:|
+| bed_bath_table | 10,953 | 9.94% | 10,033 | 920 | 91.60% | 8.40% |
+| health_beauty | 9,467 | 8.59% | 8,609 | 858 | 90.94% | 9.06% |
+| sports_leisure | 8,431 | 7.65% | 7,806 | 625 | 92.59% | 7.41% |
+| furniture_decor | 8,160 | 7.40% | 7,472 | 688 | 91.57% | 8.43% |
+| computers_accessories | 7,643 | 6.94% | 7,049 | 594 | 92.23% | 7.77% |
+| housewares | 6,795 | 6.17% | 6,354 | 441 | 93.51% | 6.49% |
+| watches_gifts | 5,857 | 5.32% | 5,372 | 485 | 91.72% | 8.28% |
+| telephony | 4,430 | 4.02% | 4,061 | 369 | 91.67% | 8.33% |
+| garden_tools | 4,268 | 3.87% | 3,928 | 340 | 92.03% | 7.97% |
+| auto | 4,139 | 3.76% | 3,796 | 343 | 91.71% | 8.29% |
+| toys | 4,030 | 3.66% | 3,731 | 299 | 92.58% | 7.42% |
+| cool_stuff | 3,718 | 3.37% | 3,467 | 251 | 93.25% | 6.75% |
+| perfumery | 3,342 | 3.03% | 3,097 | 245 | 92.67% | 7.33% |
+| baby | 2,982 | 2.71% | 2,720 | 262 | 91.21% | 8.79% |
+| electronics | 2,729 | 2.48% | 2,463 | 266 | 90.25% | 9.75% |
+| stationery | 2,466 | 2.24% | 2,268 | 198 | 91.97% | 8.03% |
+| fashion_bags_accessories | 1,986 | 1.80% | 1,862 | 124 | 93.76% | 6.24% |
+| pet_shop | 1,924 | 1.75% | 1,806 | 118 | 93.87% | 6.13% |
+| office_furniture | 1,668 | 1.51% | 1,519 | 149 | 91.07% | 8.93% |
+| nan | 1,559 | 1.41% | 1,414 | 145 | 90.70% | 9.30% |
+| consoles_games | 1,089 | 0.99% | 1,004 | 85 | 92.19% | 7.81% |
+| luggage_accessories | 1,077 | 0.98% | 1,019 | 58 | 94.61% | 5.39% |
+| construction_tools_construction | 916 | 0.83% | 842 | 74 | 91.92% | 8.08% |
+| home_appliances | 754 | 0.68% | 703 | 51 | 93.24% | 6.76% |
+| small_appliances | 658 | 0.60% | 619 | 39 | 94.07% | 5.93% |
+| musical_instruments | 651 | 0.59% | 595 | 56 | 91.40% | 8.60% |
+| home_construction | 596 | 0.54% | 547 | 49 | 91.78% | 8.22% |
+| books_general_interest | 536 | 0.49% | 501 | 35 | 93.47% | 6.53% |
+| food | 499 | 0.45% | 450 | 49 | 90.18% | 9.82% |
+| furniture_living_room | 495 | 0.45% | 456 | 39 | 92.12% | 7.88% |
+| home_confort | 429 | 0.39% | 385 | 44 | 89.74% | 10.26% |
+| audio | 362 | 0.33% | 316 | 46 | 87.29% | 12.71% |
+| drinks | 361 | 0.33% | 341 | 20 | 94.46% | 5.54% |
+| market_place | 305 | 0.28% | 292 | 13 | 95.74% | 4.26% |
+| construction_tools_lights | 301 | 0.27% | 271 | 30 | 90.03% | 9.97% |
+| air_conditioning | 289 | 0.26% | 278 | 11 | 96.19% | 3.81% |
+| kitchen_dining_laundry_garden_furniture | 274 | 0.25% | 262 | 12 | 95.62% | 4.38% |
+| food_drink | 269 | 0.24% | 252 | 17 | 93.68% | 6.32% |
+| industry_commerce_and_business | 264 | 0.24% | 244 | 20 | 92.42% | 7.58% |
+| books_technical | 263 | 0.24% | 234 | 29 | 88.97% | 11.03% |
+| fashion_shoes | 257 | 0.23% | 242 | 15 | 94.16% | 5.84% |
+| fixed_telephony | 255 | 0.23% | 244 | 11 | 95.69% | 4.31% |
+| costruction_tools_garden | 232 | 0.21% | 215 | 17 | 92.67% | 7.33% |
+| home_appliances_2 | 231 | 0.21% | 215 | 16 | 93.07% | 6.93% |
+| agro_industry_and_commerce | 206 | 0.19% | 197 | 9 | 95.63% | 4.37% |
+| computers | 199 | 0.18% | 186 | 13 | 93.47% | 6.53% |
+| art | 197 | 0.18% | 182 | 15 | 92.39% | 7.61% |
+| signaling_and_security | 197 | 0.18% | 186 | 11 | 94.42% | 5.58% |
+| construction_tools_safety | 183 | 0.17% | 173 | 10 | 94.54% | 5.46% |
+| christmas_supplies | 150 | 0.14% | 132 | 18 | 88.00% | 12.00% |
+| fashion_underwear_beach | 127 | 0.12% | 111 | 16 | 87.40% | 12.60% |
+| fashion_male_clothing | 125 | 0.11% | 118 | 7 | 94.40% | 5.60% |
+| costruction_tools_tools | 103 | 0.09% | 97 | 6 | 94.17% | 5.83% |
+| furniture_bedroom | 103 | 0.09% | 95 | 8 | 92.23% | 7.77% |
+| tablets_printing_image | 83 | 0.08% | 77 | 6 | 92.77% | 7.23% |
+| small_appliances_home_oven_and_coffee | 73 | 0.07% | 68 | 5 | 93.15% | 6.85% |
+| cine_photo | 70 | 0.06% | 65 | 5 | 92.86% | 7.14% |
+| dvds_blu_ray | 61 | 0.06% | 57 | 4 | 93.44% | 6.56% |
+| books_imported | 57 | 0.05% | 55 | 2 | 96.49% | 3.51% |
+| fashio_female_clothing | 45 | 0.04% | 42 | 3 | 93.33% | 6.67% |
+| party_supplies | 42 | 0.04% | 40 | 2 | 95.24% | 4.76% |
+| music | 38 | 0.03% | 35 | 3 | 92.11% | 7.89% |
+| furniture_mattress_and_upholstery | 37 | 0.03% | 32 | 5 | 86.49% | 13.51% |
+| diapers_and_hygiene | 37 | 0.03% | 36 | 1 | 97.30% | 2.70% |
+| flowers | 33 | 0.03% | 32 | 1 | 96.97% | 3.03% |
+| home_comfort_2 | 30 | 0.03% | 25 | 5 | 83.33% | 16.67% |
+| fashion_sport | 29 | 0.03% | 27 | 2 | 93.10% | 6.90% |
+| arts_and_craftmanship | 24 | 0.02% | 22 | 2 | 91.67% | 8.33% |
+| la_cuisine | 14 | 0.01% | 14 | 0 | 100.00% | 0.00% |
+| cds_dvds_musicals | 14 | 0.01% | 14 | 0 | 100.00% | 0.00% |
+| fashion_childrens_clothes | 7 | 0.01% | 7 | 0 | 100.00% | 0.00% |
+| security_and_services | 2 | 0.00% | 2 | 0 | 100.00% | 0.00% |
+
+---
+
+## KPI 4 - Average Delivery Time by Product Category
+
+[Use the full table from your CSV here.]
+
+---
+
+## KPI 5 - Average Delay Time by Product Category
+
+[Use the full table from your CSV here.]
+
+---
+
+## Key Findings
+
+- Product category performance varies meaningfully across the marketplace.
+- **Bed Bath Table** is the largest product category, with **10,953 orders**, representing **9.94% of total orders**.
+- The five largest categories — **Bed Bath Table**, **Health Beauty**, **Sports Leisure**, **Furniture Decor** and **Computers Accessories** — jointly represent approximately **40.52%** of all orders.
+- **Bed Bath Table** generates the highest number of delayed orders, with **920 delayed deliveries**, making it highly relevant from a business impact perspective.
+- **Health Beauty** is the second-largest category and also shows a relatively high delayed delivery rate of **9.06%**.
+- **Electronics**, **Audio**, **Books Technical**, **Christmas Supplies**, **Fashion Underwear Beach**, **Furniture Mattress and Upholstery**, and **Home Comfort 2** show weaker delivery reliability, but several of these categories represent a small share of total orders.
+- **Housewares** stands out as a strong benchmark category, combining scale with a relatively high **93.51% on-time delivery rate** and a low average delivery time of **10.87 days**.
+- Categories with very small order volumes can show extreme reliability rates, so their percentages should be interpreted carefully.
+
+---
+
+## Insight
+
+Operational inefficiencies are not evenly distributed across product categories.
+
+From a business impact perspective, categories such as **Bed Bath Table**, **Health Beauty**, **Furniture Decor**, and **Computers Accessories** deserve particular attention because they combine high order volume with a significant number of delayed deliveries.
+
+From an operational efficiency perspective, categories such as **Housewares** perform comparatively well despite substantial order volume.
+
+Overall, category-level monitoring can help prioritize improvement efforts toward the product categories with the greatest impact on customer experience and marketplace performance.
