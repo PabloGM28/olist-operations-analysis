@@ -532,3 +532,72 @@ From a business impact perspective, categories such as **Bed Bath Table**, **Hea
 From an operational efficiency perspective, **Housewares** represents the benchmark category, combining scale with strong delivery performance.
 
 Overall, category-level monitoring can help prioritize improvement efforts on the product categories with the greatest impact on customer experience and overall marketplace performance.
+# 6. Customer Satisfaction Analysis
+
+## Business Question
+
+**How do delivery delays affect customer satisfaction?**
+
+---
+
+## KPI 1 - Average Review Score by Delivery Status
+
+| Delivery Status | Average Review Score |
+|:---|---:|
+| On-Time | 4.3 |
+| Delayed | 2.6 |
+
+---
+
+## KPI 2 - Review Score Distribution by Delivery Status
+
+| Delivery Status | 1-Star Reviews | 2-Star Reviews | 3-Star Reviews | 4-Star Reviews | 5-Star Reviews |
+|:---|---:|---:|---:|---:|---:|
+| On-Time | 7% | 3% | 8% | 20% | 62% |
+| Delayed | 46% | 8% | 11% | 12% | 22% |
+
+---
+
+## KPI 3 - Average Review Score by Delay Severity Group
+
+| Delay Group | Average Review Score | Total Orders | % of Total Orders |
+|:---|---:|---:|---:|
+| ON_TIME | 4.29 | 88,658 | 92.01% |
+| 1-3_DAYS | 3.29 | 1,856 | 1.93% |
+| 4-7_DAYS | 2.10 | 1,756 | 1.82% |
+| 8-14_DAYS | 1.68 | 1,453 | 1.51% |
+| >14_DAYS | 2.86 | 2,636 | 2.74% |
+
+---
+
+## KPI 4 - Review Response Rate by Delivery Status
+
+| Delivery Status | Total Orders | % of Total Orders | Review Response Rate |
+|:---|---:|---:|---:|
+| ON_TIME | 89,139 | 91.89% | 99% |
+| DELAYED | 7,866 | 8.11% | 98% |
+
+---
+
+## Key Findings
+
+- Customer satisfaction is strongly associated with delivery performance.
+- Orders delivered on time receive an average review score of **4.3**, while delayed orders receive only **2.6**, showing a substantial decline in customer satisfaction.
+- Review distributions differ dramatically between both groups. Among on-time deliveries, **62% of reviews are 5-star ratings**, whereas delayed orders receive only **22% 5-star reviews**.
+- Delayed deliveries generate a much larger proportion of negative reviews. Almost **46% of delayed orders receive a 1-star review**, compared with only **7% for on-time orders**.
+- Delivery severity has a clear impact on customer perception. Orders delayed by **1-3 days** still maintain an average review score above **3.2**, but delays of **4-7 days** reduce the score to **2.1**.
+- The worst customer experience appears in the **8-14 day delay group**, which records an average review score of only **1.68**.
+- Most orders (**92.01%**) are delivered on time, explaining why overall customer satisfaction remains relatively high despite the existence of delays.
+- Review response rates remain extremely high for both groups (**99% for on-time orders and 98% for delayed orders**), suggesting that customers are equally likely to leave feedback regardless of delivery performance.
+
+---
+
+## Insight
+
+Delivery delays have a direct and measurable impact on customer satisfaction.
+
+The results suggest that customer perception deteriorates rapidly once delays begin, with review scores dropping sharply after only a few days of delay.
+
+Because more than **92% of orders are delivered on time**, the marketplace maintains strong overall satisfaction levels. However, the relatively small share of delayed orders generates a disproportionate amount of negative feedback.
+
+Therefore, reducing delays could have a significant impact on customer experience without necessarily requiring improvements across the entire operation.
