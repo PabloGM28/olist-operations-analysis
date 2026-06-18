@@ -24,7 +24,8 @@
 
 SELECT  
   p.product_category_name_english AS product_category_name,
-  COUNT(o.order_id) AS total_orders
+  COUNT(o.order_id) AS total_orders,
+  SAFE_DIVIDE(COUNT(o.order_id),SUM(COUNT(o.order_id)) OVER()) AS percentage_of_total
 FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
 INNER JOIN
   `olist-operations-analytics.olist_analysis.clean_product_categories` AS p
@@ -49,6 +50,7 @@ ORDER BY total_orders DESC
 SELECT  
   p.product_category_name_english AS product_category_name,
   COUNT(o.order_id) AS total_orders,
+  SAFE_DIVIDE(COUNT(o.order_id),SUM(COUNT(o.order_id)) OVER()) AS percentage_of_total,
   SAFE_DIVIDE(COUNT(CASE WHEN o.order_delivered_customer_date<= o.order_estimated_delivery_date THEN 1 END), COUNT(o.order_id)) AS on_time_delivery_rate,
   SAFE_DIVIDE(COUNT(CASE WHEN o.order_delivered_customer_date > o.order_estimated_delivery_date THEN 1 END), COUNT(o.order_id)) AS delayed_delivery_rate
 FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
@@ -75,6 +77,7 @@ ORDER BY total_orders DESC
 SELECT  
   p.product_category_name_english AS product_category_name,
   COUNT(o.order_id) AS total_orders,
+  SAFE_DIVIDE(COUNT(o.order_id),SUM(COUNT(o.order_id)) OVER()) AS percentage_of_total,
   AVG(DATE_DIFF(DATE(o.order_delivered_customer_date),DATE(o.order_purchase_timestamp), DAY)) AS average_delivery_time
 FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
 INNER JOIN
@@ -100,32 +103,8 @@ ORDER BY total_orders DESC
 SELECT  
   p.product_category_name_english AS product_category_name,
   COUNT(o.order_id) AS total_orders,
+  SAFE_DIVIDE(COUNT(o.order_id),SUM(COUNT(o.order_id)) OVER()) AS percentage_of_total,
   AVG(CASE WHEN o.order_delivered_customer_date>o.order_estimated_delivery_date THEN DATE_DIFF(DATE(o.order_delivered_customer_date),DATE(o.order_estimated_delivery_date), DAY) END) AS average_delay_time
-FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
-INNER JOIN
-  `olist-operations-analytics.olist_analysis.clean_product_categories` AS p
-ON o.order_id=p.order_id
-
-GROUP BY p.product_category_name_english
-ORDER BY total_orders DESC
-
-
--- ============================================================
--- KPI 6: Delayed Orders by Product Category
--- ============================================================
-
--- Definition:
--- Total number and percentage of delayed orders by product category.
---
--- Purpose:
--- Identify categories that contribute the most to overall
--- delivery inefficiencies from a business impact perspective.
-
-SELECT  
-  p.product_category_name_english AS product_category_name,
-  COUNT(o.order_id) AS total_orders,
-  COUNT(CASE WHEN o.order_delivered_customer_date>o.order_estimated_delivery_date THEN 1 END) AS delayed_orders,
-  SAFE_DIVIDE(COUNT(CASE WHEN o.order_delivered_customer_date>o.order_estimated_delivery_date THEN 1 END),COUNT(o.order_id))*100 AS percentage
 FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
 INNER JOIN
   `olist-operations-analytics.olist_analysis.clean_product_categories` AS p
