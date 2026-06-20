@@ -601,3 +601,58 @@ The results suggest that customer perception deteriorates rapidly once delays be
 Because more than **92% of orders are delivered on time**, the marketplace maintains strong overall satisfaction levels. However, the relatively small share of delayed orders generates a disproportionate amount of negative feedback.
 
 Therefore, reducing delays could have a significant impact on customer experience without necessarily requiring improvements across the entire operation.
+# 7. Business Impact of Delivery Delays
+
+## Business Question
+
+**Do delivery delays negatively affect customer retention?**
+
+---
+
+## KPI 1 - Customer Distribution by Delay Experience
+
+| Customer Group | Total Customers | % of Total Customers |
+|:---|---:|---:|
+| NEVER_DELAYED | 85,584 | 0.92 |
+| DELAYED_AT_LEAST_ONCE | 7,772 | 0.08 |
+
+---
+
+## KPI 2 - Repurchase Rate After Experiencing a Delay
+
+| Repurchase Status | Total Customers | % of Delayed Customers |
+|:---|---:|---:|
+| DID_NOT_RETURN_AFTER_DELAY | 7,584 | 98.00% |
+| RETURNED_AFTER_DELAY | 188 | 2.00% |
+
+---
+
+## KPI 3 - Average Number of Orders per Customer by Delay Experience
+
+| Customer Group | Number of Users | % of Total Customers | Average Number of Orders |
+|:---|---:|---:|---:|
+| NEVER_DELAYED | 85,584 | 0.92 | 1.03 |
+| DELAYED_AT_LEAST_ONCE | 7,772 | 0.08 | 1.05 |
+
+---
+
+## Key Findings
+
+- Most customers never experience delivery problems. Approximately **92% of customers** belong to the `NEVER_DELAYED` group, while only **8%** experience at least one delayed order.
+- Although delayed customers represent a relatively small share of the customer base, they exhibit extremely low repurchase rates after their first delayed order.
+- Among customers who experienced at least one delay, **98% never placed another order after their first delayed purchase**, while only **2% returned and purchased again**.
+- This result suggests a strong association between poor delivery experiences and lower customer retention.
+- Customers who experienced delays show a slightly higher average number of orders (**1.05**) than customers who never experienced delays (**1.03**).
+- However, the difference between both groups is minimal and does not indicate a meaningful difference in purchase frequency.
+
+---
+
+## Insight
+
+Delivery delays appear to be associated with customer attrition rather than with lower purchasing frequency.
+
+Only a minority of customers experience delays, but those who do rarely place another order after their first delayed purchase. While this analysis does not prove causality, it suggests that poor delivery experiences may negatively influence customer retention.
+
+Combined with the previous sections, these findings indicate that delivery delays are not only an operational issue or a source of customer dissatisfaction. They may also represent a potential threat to customer loyalty.
+
+Consequently, the regions, sellers and product categories with the highest delayed delivery rates are likely to be the greatest contributors to customer loss and should therefore be prioritized for operational improvement.
