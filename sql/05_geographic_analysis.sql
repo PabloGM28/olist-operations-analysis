@@ -1,11 +1,12 @@
 -- ============================================================
--- 03_geographic_analysis.sql
+-- 05_geographic_analysis.sql
 -- Project: Olist Operations Analytics
 -- Purpose:
---   Analyze delivery performance by customer location.
+--   Identify the geographic areas that contribute most to
+--   delivery problems.
 --
 -- Business Question:
---   Which regions experience the worst delivery performance?
+--   Which regions contribute most to delivery failures?
 -- ============================================================
 
 
@@ -17,11 +18,11 @@
 -- Total number of valid delivered orders by customer state.
 --
 -- Purpose:
--- Before analyzing delay rates by state, we first need to
--- understand order volume. This prevents overinterpreting states
--- with very small sample sizes.
+-- Understand the distribution of order volume across states
+-- before evaluating delivery performance. This prevents
+-- overinterpreting states with very small sample sizes.
 
-SELECT  
+SELECT
     c.customer_state AS state,
     COUNT(o.order_id) AS total_orders,
     SAFE_DIVIDE(COUNT(o.order_id),SUM(COUNT(o.order_id)) OVER()) AS percentage_of_total
@@ -34,6 +35,8 @@ INNER JOIN `olist-operations-analytics.olist_analysis.clean_customers` AS c
 GROUP BY c.customer_state
 
 ORDER BY total_orders DESC;
+
+
 -- ============================================================
 -- KPI 2 & KPI 3: On-Time and Delayed Delivery Rate by State
 -- ============================================================
@@ -46,10 +49,11 @@ ORDER BY total_orders DESC;
 -- order_delivered_customer_date > order_estimated_delivery_date
 --
 -- Purpose:
--- Measure delivery reliability by customer state while keeping
--- order volume visible to avoid overinterpreting low-volume states.
+-- Identify the states with the weakest delivery reliability
+-- while keeping order volume visible to avoid overinterpreting
+-- low-volume regions.
 
-SELECT  
+SELECT
   c.customer_state AS state,
   COUNT(*) AS total_orders_by_state,
   SAFE_DIVIDE(COUNT(o.order_id),SUM(COUNT(o.order_id)) OVER()) AS percentage_of_total,
@@ -57,11 +61,17 @@ SELECT
   COUNT(CASE WHEN o.order_delivered_customer_date > o.order_estimated_delivery_date THEN 1 END) AS delayed_orders,
   SAFE_DIVIDE(COUNT(CASE WHEN o.order_delivered_customer_date <= o.order_estimated_delivery_date THEN 1 END),COUNT(*)) AS on_time_delivery_rate,
   SAFE_DIVIDE(COUNT(CASE WHEN o.order_delivered_customer_date > o.order_estimated_delivery_date THEN 1 END),COUNT(*)) AS delayed_delivery_rate
+
 FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
+
 INNER JOIN `olist-operations-analytics.olist_analysis.clean_customers` AS c
   ON o.customer_id = c.customer_id
+
 GROUP BY c.customer_state
+
 ORDER BY total_orders_by_state DESC;
+
+
 -- ============================================================
 -- KPI 4: Average Delivery Time by State
 -- ============================================================
@@ -71,19 +81,25 @@ ORDER BY total_orders_by_state DESC;
 -- customer delivery date by state.
 --
 -- Purpose:
--- Measure the overall efficiency of the delivery process
+-- Compare the overall efficiency of the delivery process
 -- across different regions.
 
-SELECT  
+SELECT
   c.customer_state AS state,
   COUNT(*) AS total_orders_by_state,
   SAFE_DIVIDE(COUNT(o.order_id),SUM(COUNT(o.order_id)) OVER()) AS percentage_of_total,
-  AVG (DATE_DIFF(DATE(o.order_delivered_customer_date),DATE(o.order_purchase_timestamp),DAY)) AS average_delivery_time_days
+  AVG(DATE_DIFF(DATE(o.order_delivered_customer_date),DATE(o.order_purchase_timestamp),DAY)) AS average_delivery_time_days
+
 FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
+
 INNER JOIN `olist-operations-analytics.olist_analysis.clean_customers` AS c
   ON o.customer_id = c.customer_id
+
 GROUP BY c.customer_state
+
 ORDER BY total_orders_by_state DESC;
+
+
 -- ============================================================
 -- KPI 5: Average Delay Time by State
 -- ============================================================
@@ -93,17 +109,30 @@ ORDER BY total_orders_by_state DESC;
 -- calculated by customer state.
 --
 -- Purpose:
--- Measure the severity of delivery delays by state. This helps
--- distinguish between states with frequent but minor delays and
--- states with less frequent but more severe delays.
+-- Measure the severity of delays by state and distinguish
+-- between regions with frequent but minor delays and regions
+-- with less frequent but more severe delays.
 
-SELECT  
+SELECT
   c.customer_state AS state,
   COUNT(*) AS total_orders_by_state,
   SAFE_DIVIDE(COUNT(o.order_id),SUM(COUNT(o.order_id)) OVER()) AS percentage_of_total,
-  AVG (CASE WHEN o.order_delivered_customer_date > o.order_estimated_delivery_date THEN DATE_DIFF(DATE(o.order_delivered_customer_date),DATE(o.order_estimated_delivery_date),DAY) END) AS average_delay_time_days
+  AVG(
+    CASE
+      WHEN o.order_delivered_customer_date > o.order_estimated_delivery_date
+      THEN DATE_DIFF(
+        DATE(o.order_delivered_customer_date),
+        DATE(o.order_estimated_delivery_date),
+        DAY
+      )
+    END
+  ) AS average_delay_time_days
+
 FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
+
 INNER JOIN `olist-operations-analytics.olist_analysis.clean_customers` AS c
   ON o.customer_id = c.customer_id
+
 GROUP BY c.customer_state
+
 ORDER BY total_orders_by_state DESC;
