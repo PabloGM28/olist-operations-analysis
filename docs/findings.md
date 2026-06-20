@@ -4,28 +4,28 @@
 
 ### Total Orders
 
-| Metric       |  Value |
-| ------------ | -----: |
+| Metric | Value |
+|:---|---:|
 | Total Orders | 99,441 |
 
 ---
 
 ### Dataset Time Range
 
-| Metric              | Value                |
-| ------------------- | -------------------- |
+| Metric | Value |
+|:---|:---|
 | Earliest Order Date | 2016-09-04 21:15:19 UTC |
-| Latest Order Date   | 2018-10-17 17:30:18 UTC |
+| Latest Order Date | 2018-10-17 17:30:18 UTC |
 
 ---
 
 ### Missing Values in Delivery Fields
 
-| Field                         | Missing Records |
-| ----------------------------- | --------------: |
-| order_delivered_customer_date |           2,965 |
-| order_estimated_delivery_date |               0 |
-| order_delivered_carrier_date  |           1,783 |
+| Field | Missing Records |
+|:---|---:|
+| order_delivered_customer_date | 2,965 |
+| order_estimated_delivery_date | 0 |
+| order_delivered_carrier_date | 1,783 |
 
 ---
 
@@ -33,24 +33,39 @@
 
 Orders with NULL values in:
 
-* `order_delivered_customer_date`
-* `order_estimated_delivery_date`
+- `order_delivered_customer_date`
+- `order_estimated_delivery_date`
 
-were excluded from the delivery performance analysis.
+were excluded from the analysis because both fields are required to determine whether the delivery promise was fulfilled.
 
 Orders with NULL values in:
 
-* `order_delivered_carrier_date`
+- `order_delivered_carrier_date`
 
-were retained because this field is not required to evaluate whether the customer delivery promise was fulfilled.
+were retained because this field is not necessary to evaluate customer delivery performance.
 
 ---
 
 ### Remaining Valid Orders
 
-| Metric                      |                Value |
-| --------------------------- | -------------------: |
-| Valid Orders After Cleaning | 96476 |
+| Metric | Value |
+|:---|---:|
+| Valid Orders After Cleaning | 96,476 |
+
+---
+
+## Key Findings
+
+- The dataset contains **99,441 orders** covering the period from **September 2016 to October 2018**.
+- Missing values are concentrated in delivery-related fields, particularly `order_delivered_customer_date`.
+- Since delivery performance is evaluated by comparing actual and estimated delivery dates, orders missing either of these fields were excluded from the analysis.
+- After applying the cleaning criteria, **96,476 valid orders** remained available for subsequent analyses.
+
+---
+
+## Insight
+
+The dataset provides sufficient coverage and data quality to support the operational, customer satisfaction and business impact analyses developed throughout the project.
 
 # 2. Overall Delivery Performance
 
