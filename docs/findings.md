@@ -223,13 +223,15 @@ This confirms that delivery delays matter from a customer experience perspective
 
 ## Insight
 
-Delivery delays appear to be associated with customer attrition rather than with lower purchasing frequency.
+The previous section demonstrated that delivery delays negatively affect customer satisfaction. This section suggests that the consequences may extend beyond customer perception and influence future purchasing behavior.
 
-Only a minority of customers experience delays, but those who do rarely place another order after their first delayed purchase. While this analysis does not prove causality, it suggests that poor delivery experiences may negatively influence customer retention.
+Although only a minority of customers experience delays, those who do rarely place another order after their first delayed purchase. While this analysis does not prove causality, it reveals a strong association between poor delivery experiences and lower customer retention.
 
-Combined with the previous sections, these findings indicate that delivery delays are not only an operational issue or a source of customer dissatisfaction. They may also represent a potential threat to customer loyalty.
+Interestingly, customers who experienced delays do not purchase less frequently than customers who never experienced delays. Therefore, the primary business risk associated with delivery failures appears to be customer attrition rather than lower purchasing intensity.
 
-Consequently, the regions, sellers and product categories with the highest delayed delivery rates are likely to be the greatest contributors to customer loss and should therefore be prioritized for operational improvement.
+Having established that delivery delays are associated with both customer dissatisfaction and lower retention, the next step is to identify where these operational problems originate.
+
+The following sections focus on the regions, sellers and product categories that contribute most to delivery failures and therefore represent the greatest opportunities for operational improvement.
 
 # 5. Geographic Delivery Performance
 
