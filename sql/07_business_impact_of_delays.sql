@@ -157,3 +157,71 @@ SELECT
 FROM repurchase_after_delay
 
 GROUP BY repurchase_status;
+-- ============================================================
+-- KPI 3: Average Number of Orders per Customer by Delay Experience
+-- ============================================================
+
+-- Definition:
+-- Customers are divided into two groups:
+--   - NEVER_DELAYED: customers who never experienced a delayed order.
+--   - DELAYED_AT_LEAST_ONCE: customers who experienced at least
+--     one delayed order.
+--
+-- For each group, the average number of orders per customer is
+-- calculated.
+--
+-- Purpose:
+-- Determine whether customers affected by delivery delays
+-- purchase less frequently than customers who never experienced
+-- delays.
+
+WITH orders_categorized_deliveries AS (
+  SELECT
+    order_id,
+    o.customer_id,
+    c.customer_unique_id,
+    order_status,
+    order_purchase_timestamp,
+    order_approved_at,
+    order_delivered_carrier_date,
+    order_delivered_customer_date,
+    order_estimated_delivery_date,
+    CASE
+      WHEN order_delivered_customer_date<=order_estimated_delivery_date THEN "ON_TIME"
+      ELSE "DELAYED"
+    END AS delivery_status
+    FROM `olist-operations-analytics.olist_analysis.clean_orders` AS o
+    INNER JOIN `olist-operations-analytics.olist_analysis.clean_customers` AS c
+      ON o.customer_id=c.customer_id
+),
+
+customers_categorized_deliveries AS (
+  SELECT
+    f.customer_unique_id,
+    COUNT(order_id) AS number_of_orders,
+    CASE
+      WHEN COUNT(CASE WHEN f.delivery_status= "DELAYED" THEN 1 END)>0
+      THEN "DELAYED_AT_LEAST_ONCE"
+      ELSE "NEVER_DELAYED"
+    END AS customer_delay_group
+
+  FROM orders_categorized_deliveries AS f
+
+  GROUP BY f.customer_unique_id
+)
+
+SELECT
+  g.customer_delay_group,
+  COUNT(g.customer_unique_id) AS number_of_users,
+  ROUND(
+    SAFE_DIVIDE(
+      COUNT(g.customer_unique_id),
+      SUM(COUNT(g.customer_unique_id)) OVER()
+    ),
+    2
+  ) AS percentage_of_total,
+  ROUND(AVG(g.number_of_orders),2) AS average_number_of_orders
+
+FROM customers_categorized_deliveries AS g
+
+GROUP BY g.customer_delay_group;
