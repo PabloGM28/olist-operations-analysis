@@ -379,26 +379,31 @@ The following sections focus on the regions, sellers and product categories that
 
 ## Key Findings
 
-- Delivery performance varies significantly across Brazilian states.
-- São Paulo (SP) is the clear operational benchmark. It represents **41.97% of total orders** with **40,495 orders**, while maintaining a strong **94.11% on-time delivery rate** and an average delivery time of only **8.70 days**.
-- Rio de Janeiro (RJ) is the most relevant underperforming state from a business perspective. It represents **12.80% of total orders** with **12,353 orders**, but shows a much weaker **86.53% on-time delivery rate**, a **13.47% delayed delivery rate**, and an average delivery time of **15.24 days**.
-- Compared with São Paulo, Rio de Janeiro combines high order volume with slower deliveries, more frequent delays, and more severe delays. Its average delay time reaches **12.15 days**, almost twice São Paulo’s **6.35 days**.
-- Minas Gerais (MG), despite representing **11.77% of total orders**, performs much closer to São Paulo than Rio de Janeiro, with a **94.38% on-time delivery rate** and an average delivery time of **11.95 days**.
-- Bahia (BA), Ceará (CE), Maranhão (MA), Piauí (PI), Alagoas (AL) and Sergipe (SE) show poor reliability metrics, with delayed delivery rates above **14%** in several cases.
-- Smaller and remote states such as Amazonas (AM), Amapá (AP), Acre (AC) and Roraima (RR) represent a very small share of total orders, but show severe operational challenges, especially in average delivery time and average delay time.
-- Amapá (AP) and Roraima (RR) are particularly extreme cases. Although they represent only **0.07%** and **0.04%** of total orders respectively, their average delay times reach **48.33 days** and **36.40 days**.
+- Delivery performance varies significantly across Brazilian states, suggesting that operational inefficiencies are geographically concentrated rather than evenly distributed across the country.
+- São Paulo (SP) represents the operational benchmark. It accounts for **41.97% of all orders** while maintaining a strong **94.11% on-time delivery rate** and an average delivery time of only **8.70 days**.
+- Rio de Janeiro (RJ) emerges as the most important underperforming state from a business perspective. It represents **12.80% of total orders**, yet records a delayed delivery rate of **13.47%**, more than double São Paulo's **5.89%**.
+- Minas Gerais (MG), despite contributing **11.77% of total orders**, performs similarly to São Paulo and therefore does not appear to be a major source of delivery failures.
+- Bahia (BA), Ceará (CE), Maranhão (MA), Piauí (PI), Alagoas (AL) and Sergipe (SE) show weaker reliability metrics, with delayed delivery rates exceeding **14%** in several cases.
+- Remote states such as Amazonas (AM), Acre (AC), Amapá (AP) and Roraima (RR) experience extremely long delivery times and severe delays, although they represent only a very small proportion of total orders.
+- Amapá (AP) and Roraima (RR) are particularly extreme cases, with average delay times of **48.33 days** and **36.40 days**, respectively.
 
 ---
 
 ## Insight
 
-Operational inefficiencies are geographically concentrated rather than systemic across the entire business.
+Previous sections demonstrated that delivery delays are associated with lower customer satisfaction and lower customer retention.
 
-From a business impact perspective, Rio de Janeiro emerges as the most relevant underperforming state because it combines significant order volume with poor delivery reliability and long delivery times.
+This section shows that these delivery failures are not uniformly distributed across the business. Instead, they appear to be concentrated in specific geographic areas.
 
-From an operational complexity perspective, several smaller and more remote states show much worse service levels, with longer delivery times and severe delays despite representing a very small share of total orders.
+From a business impact perspective, **Rio de Janeiro (RJ)** represents the most relevant opportunity for improvement because it combines:
 
-By contrast, São Paulo represents the operational benchmark, achieving both scale and strong delivery performance.
+- high order volume;
+- relatively poor delivery reliability;
+- long delivery times.
+
+By contrast, several remote states exhibit much worse operational metrics but contribute only a small fraction of total orders.
+
+Therefore, prioritizing improvements in high-volume underperforming regions is likely to generate a greater impact on customer experience and retention than focusing exclusively on the most extreme but low-volume cases.
 # 6. Seller Performance
 
 ## Business Question
