@@ -1,9 +1,9 @@
 -- ============================================================
--- 07_business_impact_of_delays.sql
+-- 04_business_impact_of_delays.sql
 -- Project: Olist Operations Analytics
 -- Purpose:
---   Analyze whether delivery delays affect customer retention
---   and future purchasing behavior.
+--   Analyze whether delivery delays are associated with
+--   customer retention and future purchasing behavior.
 --
 -- Business Question:
 --   Do delivery delays negatively affect customer retention?
@@ -21,7 +21,7 @@
 --     one delayed order.
 --
 -- Purpose:
--- Measure the size of the customer base affected by delivery delays.
+-- Determine how many customers have experienced delivery delays.
 
 WITH orders_categorized_deliveries AS (
   SELECT
@@ -51,8 +51,8 @@ customers_delay_experience AS (
     END AS customer_delay_group
 
   FROM orders_categorized_deliveries AS o
-  INNER JOIN 
-    `olist-operations-analytics.olist_analysis.clean_customers` AS c 
+  INNER JOIN
+    `olist-operations-analytics.olist_analysis.clean_customers` AS c
     ON o.customer_id=c.customer_id
 
   GROUP BY c.customer_unique_id
@@ -72,6 +72,8 @@ SELECT
 FROM customers_delay_experience
 
 GROUP BY customer_delay_group;
+
+
 -- ============================================================
 -- KPI 2: Repurchase Rate After Experiencing a Delay
 -- ============================================================
@@ -157,6 +159,8 @@ SELECT
 FROM repurchase_after_delay
 
 GROUP BY repurchase_status;
+
+
 -- ============================================================
 -- KPI 3: Average Number of Orders per Customer by Delay Experience
 -- ============================================================
