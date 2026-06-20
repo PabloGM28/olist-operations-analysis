@@ -552,11 +552,11 @@ appear to suffer from more severe operational disruptions when delays occur.
 Overall, the results suggest that delivery failures are concentrated among a subset of sellers rather than being uniformly distributed across the marketplace.
 
 Therefore, seller-level performance monitoring could represent an effective lever for improving customer experience and reducing customer attrition.
-# 7. Product Category Performance
+# 7. Product Category Analysis
 
 ## Business Question
 
-**Which product categories experience the worst operational performance?**
+**Which product categories contribute most to delivery failures?**
 
 ---
 
@@ -671,10 +671,21 @@ High-volume categories are especially relevant because operational issues affect
 
 ## Insight
 
-Operational inefficiencies are concentrated in specific product categories rather than being evenly distributed across the marketplace.
+Previous sections showed that delivery delays are associated with lower customer satisfaction and lower customer retention.
 
-From a business impact perspective, categories such as **Bed Bath Table**, **Health Beauty**, **Furniture Decor**, and **Computers Accessories** deserve special attention because they combine high order volume with a significant number of delayed deliveries.
+This section suggests that product characteristics may also contribute to those delivery failures.
 
-From an operational efficiency perspective, **Housewares** represents the benchmark category, combining scale with strong delivery performance.
+From a business impact perspective, categories such as:
 
-Overall, category-level monitoring can help prioritize improvement efforts on the product categories with the greatest impact on customer experience and overall marketplace performance.
+- **Bed Bath Table**
+- **Health Beauty**
+- **Furniture Decor**
+- **Computers Accessories**
+
+deserve special attention because they combine high order volume with a large number of delayed deliveries.
+
+By contrast, **Housewares** represents the benchmark category, demonstrating that large-scale categories can maintain strong delivery performance.
+
+Overall, the results suggest that delivery failures are concentrated in specific product categories rather than being evenly distributed across the marketplace.
+
+Therefore, category-level monitoring could help prioritize operational improvements in the areas with the greatest impact on customer experience and customer retention.
