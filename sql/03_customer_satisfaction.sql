@@ -1,8 +1,9 @@
 -- ============================================================
--- 06_customer_satisfaction.sql
+-- 03_customer_satisfaction_analysis.sql
 -- Project: Olist Operations Analytics
 -- Purpose:
---   Analyze how delivery performance affects customer satisfaction.
+--   Analyze whether delivery delays negatively affect
+--   customer satisfaction.
 --
 -- Business Question:
 --   How do delivery delays affect customer satisfaction?
@@ -18,8 +19,8 @@
 -- delayed deliveries.
 --
 -- Purpose:
--- Compare customer satisfaction between orders delivered on time
--- and orders delivered after the promised delivery date.
+-- Determine whether delivery delays are associated with lower
+-- customer satisfaction.
 
 SELECT  
   ROUND(AVG(CASE WHEN o.order_delivered_customer_date<=o.order_estimated_delivery_date THEN r.review_score END),1) AS average_on_time_review,
@@ -31,7 +32,7 @@ INNER JOIN `olist-operations-analytics.olist_analysis.clean_order_reviews` AS r
 
 
 -- ============================================================
--- KPI 2: Review Score Distriburion by Delivery Status
+-- KPI 2: Review Score Distribution by Delivery Status
 -- ============================================================
 
 -- Definition:
@@ -39,8 +40,8 @@ INNER JOIN `olist-operations-analytics.olist_analysis.clean_order_reviews` AS r
 -- split by delivery status.
 --
 -- Purpose:
--- Understand whether delayed deliveries change the pattern of
--- customer ratings compared with on-time deliveries.
+-- Analyze how the distribution of customer ratings changes
+-- when delivery promises are not fulfilled.
 
 WITH categorized_deliveries AS (
 
@@ -133,8 +134,8 @@ ORDER BY
 -- status.
 --
 -- Purpose:
--- Analyze whether customers with delayed deliveries are more likely
--- to leave a review.
+-- Determine whether customers experiencing delays are more likely
+-- to provide feedback.
 
 WITH categorized_deliveries AS (
 
