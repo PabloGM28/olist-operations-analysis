@@ -404,11 +404,11 @@ From a business impact perspective, **Rio de Janeiro (RJ)** represents the most 
 By contrast, several remote states exhibit much worse operational metrics but contribute only a small fraction of total orders.
 
 Therefore, prioritizing improvements in high-volume underperforming regions is likely to generate a greater impact on customer experience and retention than focusing exclusively on the most extreme but low-volume cases.
-# 6. Seller Performance
+# 6. Seller Analysis
 
 ## Business Question
 
-**Which sellers contribute the most to delivery inefficiencies?**
+**Which sellers contribute the most to delivery failures?**
 
 ---
 
@@ -429,25 +429,10 @@ The same Top 20 sellers are used consistently across all KPIs to ensure comparab
 | 6560211a19b47992c3666cc44a7e94c0 | 1,996 | 1.81% |
 | 4a3ca9315b744ce9f8e9374361493884 | 1,949 | 1.77% |
 | 1f50f920176fa81dab994f9023523100 | 1,926 | 1.75% |
-| cc419e0650a3c5ba77189a1882b7556a | 1,719 | 1.56% |
-| da8622b14eb17ae2831f4ac5b9dab84a | 1,548 | 1.40% |
-| 955fee9216a65b617aa5c0531780ce60 | 1,472 | 1.34% |
-| 1025f0e2d44d7041d6cf58b6550e0bfa | 1,420 | 1.29% |
-| 7c67e1448b00f6e969d365cea6b010ab | 1,355 | 1.23% |
-| ea8482cd71df3c1969d7b9473ff13abc | 1,188 | 1.08% |
-| 7a67c85e85bb2ce8582c35f2203ad736 | 1,155 | 1.05% |
-| 4869f7a5dfa277a7dca6462dcf3b52b2 | 1,148 | 1.04% |
-| 3d871de0142ce09b7081e2b9d1733cb1 | 1,131 | 1.03% |
-| 8b321bb669392f5163d04c59e235e066 | 1,005 | 0.91% |
-| cca3071e3e9bb7d12640c9fbe2301306 | 817 | 0.74% |
-| 620c87c171fb2a6dd6e8bb4dec959fc6 | 781 | 0.71% |
-| a1043bafd471dff536d0c462352beb48 | 752 | 0.68% |
-| e9779976487b77c6d4ac45f75ec7afe9 | 738 | 0.67% |
-| f8db351d8c4c4c22c6835c19a46f01b0 | 714 | 0.65% |
-| d2374cbcbb3ca4ab1086534108cc3ab7 | 620 | 0.56% |
-| 391fc6631aebcf3004804e51b40bcf1e | 605 | 0.55% |
+| ... | ... | ... |
 
 ---
+
 
 ## KPI 2 & KPI 3 - Delivery Reliability by Seller
 
@@ -534,10 +519,10 @@ The same Top 20 sellers are used consistently across all KPIs to ensure comparab
 
 - Seller performance varies meaningfully among the highest-volume sellers.
 - The largest seller, `6560211a19b47992c3666cc44a7e94c0`, handles **1,996 orders**, representing **1.81% of total orders**, while maintaining a strong **93.79% on-time delivery rate** and an average delivery time of **9.47 days**.
-- Seller `4a3ca9315b744ce9f8e9374361493884` is one of the most relevant underperformers from a business impact perspective. It handles **1,949 orders**, represents **1.77% of total orders**, and shows a **10.98% delayed delivery rate**.
+- Seller `4a3ca9315b744ce9f8e9374361493884` is one of the most relevant underperformers from a business perspective. It handles **1,949 orders**, represents **1.77% of total orders**, and shows a **10.98% delayed delivery rate**.
 - Seller `1f50f920176fa81dab994f9023523100` also combines high order volume with weaker operational performance, handling **1,926 orders** with an average delivery time of **15.48 days** and a **9.45% delayed delivery rate**.
 - Seller `4869f7a5dfa277a7dca6462dcf3b52b2` has the highest delayed delivery rate among the Top 20 sellers, at **11.59%**, while representing **1.04% of total orders**.
-- Seller `7c67e1448b00f6e969d365cea6b010ab` stands out for its very long average delivery time of **22.33 days**, despite representing only **1.23% of total orders**.
+- Seller `7c67e1448b00f6e969d365cea6b010ab` stands out for its very long average delivery time of **22.33 days**, despite representing **1.23% of total orders**.
 - Seller `cca3071e3e9bb7d12640c9fbe2301306` has a relatively low delayed delivery rate of **5.39%**, but when delays occur, they are severe, with an average delay time of **18.62 days**.
 - Several high-volume sellers maintain strong reliability, suggesting that seller-level delivery problems are concentrated in a subset of sellers rather than being evenly distributed across the marketplace.
 
@@ -545,13 +530,28 @@ The same Top 20 sellers are used consistently across all KPIs to ensure comparab
 
 ## Insight
 
-Delivery inefficiencies are not evenly distributed across sellers.
+Previous sections showed that delivery delays are associated with lower customer satisfaction and lower customer retention.
 
-From a business impact perspective, sellers such as `4a3ca9315b744ce9f8e9374361493884`, `1f50f920176fa81dab994f9023523100`, and `4869f7a5dfa277a7dca6462dcf3b52b2` deserve particular attention because they combine relatively high order volume with weaker delivery reliability.
+This section indicates that seller performance is one of the potential sources of those delivery failures.
 
-From an operational severity perspective, sellers such as `7c67e1448b00f6e969d365cea6b010ab` and `cca3071e3e9bb7d12640c9fbe2301306` show especially long delivery or delay durations, suggesting deeper logistical bottlenecks.
+From a business impact perspective, sellers such as:
 
-Overall, seller-level performance monitoring could help prioritize operational improvements among the sellers with the greatest business impact.
+- `4a3ca9315b744ce9f8e9374361493884`
+- `1f50f920176fa81dab994f9023523100`
+- `4869f7a5dfa277a7dca6462dcf3b52b2`
+
+deserve particular attention because they combine relatively high order volume with weaker delivery reliability.
+
+Meanwhile, sellers such as:
+
+- `7c67e1448b00f6e969d365cea6b010ab`
+- `cca3071e3e9bb7d12640c9fbe2301306`
+
+appear to suffer from more severe operational disruptions when delays occur.
+
+Overall, the results suggest that delivery failures are concentrated among a subset of sellers rather than being uniformly distributed across the marketplace.
+
+Therefore, seller-level performance monitoring could represent an effective lever for improving customer experience and reducing customer attrition.
 # 7. Product Category Performance
 
 ## Business Question
