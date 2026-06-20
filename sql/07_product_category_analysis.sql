@@ -1,11 +1,12 @@
 -- ============================================================
--- 05_product_category_analysis.sql
+-- 07_product_category_analysis.sql
 -- Project: Olist Operations Analytics
 -- Purpose:
---   Analyze delivery performance by product category.
+--   Identify the product categories that contribute most to
+--   delivery problems.
 --
 -- Business Question:
---   Which product categories experience the worst operational performance?
+--   Which product categories contribute most to delivery failures?
 -- ============================================================
 
 
@@ -17,10 +18,9 @@
 -- Total number of orders by product category.
 --
 -- Purpose:
--- Before analyzing delivery performance, we first need to
--- understand the order volume associated with each category.
--- This prevents overinterpreting categories with very small
--- sample sizes.
+-- Understand the order volume associated with each product
+-- category before evaluating delivery performance. This prevents
+-- overinterpreting categories with very small sample sizes.
 
 SELECT  
   p.product_category_name_english AS product_category_name,
@@ -44,8 +44,9 @@ ORDER BY total_orders DESC
 -- for each product category.
 --
 -- Purpose:
--- Measure delivery reliability and identify categories that
--- experience the highest proportion of delays.
+-- Identify categories with weaker delivery reliability while
+-- keeping order volume visible to focus on the categories with
+-- the greatest business impact.
 
 SELECT  
   p.product_category_name_english AS product_category_name,
@@ -73,8 +74,8 @@ ORDER BY total_orders DESC
 -- for each product category.
 --
 -- Purpose:
--- Identify categories that require longer delivery times and
--- evaluate operational efficiency across product types.
+-- Compare delivery cycle length across product categories and
+-- identify categories with slower operational performance.
 
 SELECT  
   p.product_category_name_english AS product_category_name,
@@ -99,8 +100,9 @@ ORDER BY total_orders DESC
 -- grouped by product category.
 --
 -- Purpose:
--- Evaluate the severity of delays and determine which categories
--- suffer the longest disruptions once a delay occurs.
+-- Measure delay severity by product category and identify
+-- categories whose delays are especially severe when delivery
+-- promises are missed.
 
 SELECT  
   p.product_category_name_english AS product_category_name,
