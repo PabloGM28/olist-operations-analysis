@@ -71,41 +71,41 @@ The dataset provides sufficient coverage and data quality to support the operati
 
 ## Business Question
 
-**How efficient is the delivery process overall?**
+**How reliable is Olist's delivery operation?**
 
 ---
 
 ## KPIs
 
-| KPI                   |     Result |
-| --------------------- | ---------: |
-| Valid Deliveries      |     96,476 |
-| On-Time Deliveries    |     88,649 |
-| Delayed Deliveries    |      7,827 |
-| On-Time Delivery Rate |     91.89% |
-| Delayed Delivery Rate |      8.11% |
+| KPI | Result |
+|:---|---:|
+| Valid Deliveries | 96,476 |
+| On-Time Deliveries | 88,649 |
+| Delayed Deliveries | 7,827 |
+| On-Time Delivery Rate | 91.89% |
+| Delayed Delivery Rate | 8.11% |
 | Average Delivery Time | 12.50 days |
-| Average Delay Time    | 10.62 days |
+| Average Delay Time | 10.62 days |
 
 ---
 
 ## Key Findings
 
-* Most orders are delivered successfully and on time.
-* Nearly 92% of deliveries meet the promised delivery date.
-* Only 8.1% of orders experience delays.
-* The average delivery process takes approximately 12.5 days.
-* When delays occur, customers wait an additional 10.6 days on average.
+- Most orders are delivered successfully and on time.
+- Approximately **92% of deliveries** meet the promised delivery date.
+- Only **8.11% of orders** experience delays.
+- Customers receive their orders after an average of **12.50 days**.
+- When delays occur, customers wait an additional **10.62 days** on average beyond the promised delivery date.
 
 ---
 
 ## Insight
 
-Overall delivery performance appears strong, suggesting that operational inefficiencies are not a systemic issue across the entire business.
+Overall delivery performance appears strong, with the vast majority of orders being delivered on time.
 
-However, the relatively long average delay time indicates that when delivery failures occur, their impact on customer experience can be substantial.
+However, although delayed orders represent only a small proportion of total deliveries, the average delay duration is relatively high. This suggests that delivery failures, while infrequent, may have a meaningful impact on the customer experience.
 
-This suggests that potential inefficiencies may be concentrated in specific regions, sellers or customer segments rather than affecting the operation as a whole.
+Therefore, understanding how these delays affect customer satisfaction and business performance becomes the next step of the analysis.
 
 # 3. Geographic Delivery Performance
 
