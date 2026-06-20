@@ -1,11 +1,12 @@
 -- ============================================================
--- 04_seller_analysis.sql
+-- 06_seller_analysis.sql
 -- Project: Olist Operations Analytics
 -- Purpose:
---   Analyze delivery performance by seller.
+--   Identify the sellers that contribute most to delivery
+--   problems.
 --
 -- Business Question:
---   Which sellers contribute the most to delivery delays?
+--   Which sellers contribute the most to delivery failures?
 -- ============================================================
 
 
@@ -17,10 +18,9 @@
 -- Total number of orders handled by each seller.
 --
 -- Purpose:
--- Before analyzing delivery performance, we first need to
--- understand the order volume associated with each seller.
--- This prevents overinterpreting sellers with very small
--- sample sizes.
+-- Understand the order volume associated with each seller
+-- before evaluating delivery performance. This prevents
+-- overinterpreting sellers with very small sample sizes.
 
 SELECT  
   s.seller_id AS seller,
@@ -44,8 +44,9 @@ ORDER BY total_orders_per_seller DESC
 -- for each seller.
 --
 -- Purpose:
--- Measure seller reliability and identify sellers with the
--- highest proportion of delayed deliveries.
+-- Identify sellers with weaker delivery reliability while
+-- keeping order volume visible to focus on the sellers with
+-- the greatest business impact.
 
 SELECT  
   s.seller_id AS seller,
@@ -63,6 +64,7 @@ ON o.order_id=s.order_id
 GROUP BY s.seller_id
 ORDER BY total_orders_per_seller DESC
 
+
 -- ============================================================
 -- KPI 4: Average Delivery Time by Seller
 -- ============================================================
@@ -72,8 +74,8 @@ ORDER BY total_orders_per_seller DESC
 -- for each seller.
 --
 -- Purpose:
--- Identify sellers with longer delivery cycles and evaluate
--- their operational efficiency.
+-- Compare delivery cycle length across sellers and identify
+-- sellers with slower operational performance.
 
 SELECT  
 
@@ -99,8 +101,8 @@ ORDER BY total_orders DESC
 -- grouped by seller.
 --
 -- Purpose:
--- Evaluate the severity of delays and determine which sellers
--- experience the longest disruptions once a delay occurs.
+-- Measure delay severity by seller and identify sellers whose
+-- delays are especially severe when delivery promises are missed.
 
 SELECT  
 
