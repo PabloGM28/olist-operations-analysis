@@ -106,8 +106,132 @@ Overall delivery performance appears strong, with the vast majority of orders be
 However, although delayed orders represent only a small proportion of total deliveries, the average delay duration is relatively high. This suggests that delivery failures, while infrequent, may have a meaningful impact on the customer experience.
 
 Therefore, understanding how these delays affect customer satisfaction and business performance becomes the next step of the analysis.
+# 3. Customer Satisfaction Analysis
 
-# 3. Geographic Delivery Performance
+## Business Question
+
+**How do delivery delays affect customer satisfaction?**
+
+---
+
+## KPI 1 - Average Review Score by Delivery Status
+
+| Delivery Status | Average Review Score |
+|:---|---:|
+| On-Time | 4.3 |
+| Delayed | 2.6 |
+
+---
+
+## KPI 2 - Review Score Distribution by Delivery Status
+
+| Delivery Status | 1-Star Reviews | 2-Star Reviews | 3-Star Reviews | 4-Star Reviews | 5-Star Reviews |
+|:---|---:|---:|---:|---:|---:|
+| On-Time | 7% | 3% | 8% | 20% | 62% |
+| Delayed | 46% | 8% | 11% | 12% | 22% |
+
+---
+
+## KPI 3 - Average Review Score by Delay Severity Group
+
+| Delay Group | Average Review Score | Total Orders | % of Total Orders |
+|:---|---:|---:|---:|
+| ON_TIME | 4.29 | 88,658 | 92.01% |
+| 1-3_DAYS | 3.29 | 1,856 | 1.93% |
+| 4-7_DAYS | 2.10 | 1,756 | 1.82% |
+| 8-14_DAYS | 1.68 | 1,453 | 1.51% |
+| >14_DAYS | 2.86 | 2,636 | 2.74% |
+
+---
+
+## KPI 4 - Review Response Rate by Delivery Status
+
+| Delivery Status | Total Orders | % of Total Orders | Review Response Rate |
+|:---|---:|---:|---:|
+| ON_TIME | 89,139 | 91.89% | 99% |
+| DELAYED | 7,866 | 8.11% | 98% |
+
+---
+
+## Key Findings
+
+- Customer satisfaction is strongly associated with delivery performance.
+- Orders delivered on time receive an average review score of **4.3**, while delayed orders receive only **2.6**, showing a substantial decline in customer satisfaction.
+- Review distributions differ dramatically between both groups. Among on-time deliveries, **62% of reviews are 5-star ratings**, whereas delayed orders receive only **22% 5-star reviews**.
+- Delayed deliveries generate a much larger proportion of negative reviews. Almost **46% of delayed orders receive a 1-star review**, compared with only **7% for on-time orders**.
+- Delivery severity has a clear impact on customer perception. Orders delayed by **1-3 days** still maintain an average review score above **3.2**, but delays of **4-7 days** reduce the score to **2.1**.
+- The worst customer experience appears in the **8-14 day delay group**, which records an average review score of only **1.68**.
+- Most orders (**92.01%**) are delivered on time, explaining why overall customer satisfaction remains relatively high despite the existence of delays.
+- Review response rates remain extremely high for both groups (**99% for on-time orders and 98% for delayed orders**), suggesting that customers are equally likely to leave feedback regardless of delivery performance.
+
+---
+
+## Insight
+
+Delivery delays have a direct and measurable impact on customer satisfaction.
+
+The results show that customer perception deteriorates sharply when the delivery promise is not fulfilled. On-time orders receive an average review score of **4.3**, while delayed orders fall to **2.6**.
+
+Because more than **92% of orders are delivered on time**, overall satisfaction remains relatively strong. However, the small share of delayed orders generates a disproportionate amount of negative feedback, especially 1-star reviews.
+
+This confirms that delivery delays matter from a customer experience perspective. The next step is to evaluate whether this dissatisfaction is also reflected in future purchasing behavior.
+# 4. Business Impact of Delivery Delays
+
+## Business Question
+
+**Do delivery delays negatively affect customer retention?**
+
+---
+
+## KPI 1 - Customer Distribution by Delay Experience
+
+| Customer Group | Total Customers | % of Total Customers |
+|:---|---:|---:|
+| NEVER_DELAYED | 85,584 | 0.92 |
+| DELAYED_AT_LEAST_ONCE | 7,772 | 0.08 |
+
+---
+
+## KPI 2 - Repurchase Rate After Experiencing a Delay
+
+| Repurchase Status | Total Customers | % of Delayed Customers |
+|:---|---:|---:|
+| DID_NOT_RETURN_AFTER_DELAY | 7,584 | 98.00% |
+| RETURNED_AFTER_DELAY | 188 | 2.00% |
+
+---
+
+## KPI 3 - Average Number of Orders per Customer by Delay Experience
+
+| Customer Group | Number of Users | % of Total Customers | Average Number of Orders |
+|:---|---:|---:|---:|
+| NEVER_DELAYED | 85,584 | 0.92 | 1.03 |
+| DELAYED_AT_LEAST_ONCE | 7,772 | 0.08 | 1.05 |
+
+---
+
+## Key Findings
+
+- Most customers never experience delivery problems. Approximately **92% of customers** belong to the `NEVER_DELAYED` group, while only **8%** experience at least one delayed order.
+- Although delayed customers represent a relatively small share of the customer base, they exhibit extremely low repurchase rates after their first delayed order.
+- Among customers who experienced at least one delay, **98% never placed another order after their first delayed purchase**, while only **2% returned and purchased again**.
+- This result suggests a strong association between poor delivery experiences and lower customer retention.
+- Customers who experienced delays show a slightly higher average number of orders (**1.05**) than customers who never experienced delays (**1.03**).
+- However, the difference between both groups is minimal and does not indicate a meaningful difference in purchase frequency.
+
+---
+
+## Insight
+
+Delivery delays appear to be associated with customer attrition rather than with lower purchasing frequency.
+
+Only a minority of customers experience delays, but those who do rarely place another order after their first delayed purchase. While this analysis does not prove causality, it suggests that poor delivery experiences may negatively influence customer retention.
+
+Combined with the previous sections, these findings indicate that delivery delays are not only an operational issue or a source of customer dissatisfaction. They may also represent a potential threat to customer loyalty.
+
+Consequently, the regions, sellers and product categories with the highest delayed delivery rates are likely to be the greatest contributors to customer loss and should therefore be prioritized for operational improvement.
+
+# 5. Geographic Delivery Performance
 
 ## Business Question
 
@@ -273,7 +397,7 @@ From a business impact perspective, Rio de Janeiro emerges as the most relevant 
 From an operational complexity perspective, several smaller and more remote states show much worse service levels, with longer delivery times and severe delays despite representing a very small share of total orders.
 
 By contrast, São Paulo represents the operational benchmark, achieving both scale and strong delivery performance.
-# 4. Seller Performance
+# 6. Seller Performance
 
 ## Business Question
 
@@ -421,7 +545,7 @@ From a business impact perspective, sellers such as `4a3ca9315b744ce9f8e93743614
 From an operational severity perspective, sellers such as `7c67e1448b00f6e969d365cea6b010ab` and `cca3071e3e9bb7d12640c9fbe2301306` show especially long delivery or delay durations, suggesting deeper logistical bottlenecks.
 
 Overall, seller-level performance monitoring could help prioritize operational improvements among the sellers with the greatest business impact.
-# 5. Product Category Performance
+# 7. Product Category Performance
 
 ## Business Question
 
@@ -547,127 +671,3 @@ From a business impact perspective, categories such as **Bed Bath Table**, **Hea
 From an operational efficiency perspective, **Housewares** represents the benchmark category, combining scale with strong delivery performance.
 
 Overall, category-level monitoring can help prioritize improvement efforts on the product categories with the greatest impact on customer experience and overall marketplace performance.
-# 6. Customer Satisfaction Analysis
-
-## Business Question
-
-**How do delivery delays affect customer satisfaction?**
-
----
-
-## KPI 1 - Average Review Score by Delivery Status
-
-| Delivery Status | Average Review Score |
-|:---|---:|
-| On-Time | 4.3 |
-| Delayed | 2.6 |
-
----
-
-## KPI 2 - Review Score Distribution by Delivery Status
-
-| Delivery Status | 1-Star Reviews | 2-Star Reviews | 3-Star Reviews | 4-Star Reviews | 5-Star Reviews |
-|:---|---:|---:|---:|---:|---:|
-| On-Time | 7% | 3% | 8% | 20% | 62% |
-| Delayed | 46% | 8% | 11% | 12% | 22% |
-
----
-
-## KPI 3 - Average Review Score by Delay Severity Group
-
-| Delay Group | Average Review Score | Total Orders | % of Total Orders |
-|:---|---:|---:|---:|
-| ON_TIME | 4.29 | 88,658 | 92.01% |
-| 1-3_DAYS | 3.29 | 1,856 | 1.93% |
-| 4-7_DAYS | 2.10 | 1,756 | 1.82% |
-| 8-14_DAYS | 1.68 | 1,453 | 1.51% |
-| >14_DAYS | 2.86 | 2,636 | 2.74% |
-
----
-
-## KPI 4 - Review Response Rate by Delivery Status
-
-| Delivery Status | Total Orders | % of Total Orders | Review Response Rate |
-|:---|---:|---:|---:|
-| ON_TIME | 89,139 | 91.89% | 99% |
-| DELAYED | 7,866 | 8.11% | 98% |
-
----
-
-## Key Findings
-
-- Customer satisfaction is strongly associated with delivery performance.
-- Orders delivered on time receive an average review score of **4.3**, while delayed orders receive only **2.6**, showing a substantial decline in customer satisfaction.
-- Review distributions differ dramatically between both groups. Among on-time deliveries, **62% of reviews are 5-star ratings**, whereas delayed orders receive only **22% 5-star reviews**.
-- Delayed deliveries generate a much larger proportion of negative reviews. Almost **46% of delayed orders receive a 1-star review**, compared with only **7% for on-time orders**.
-- Delivery severity has a clear impact on customer perception. Orders delayed by **1-3 days** still maintain an average review score above **3.2**, but delays of **4-7 days** reduce the score to **2.1**.
-- The worst customer experience appears in the **8-14 day delay group**, which records an average review score of only **1.68**.
-- Most orders (**92.01%**) are delivered on time, explaining why overall customer satisfaction remains relatively high despite the existence of delays.
-- Review response rates remain extremely high for both groups (**99% for on-time orders and 98% for delayed orders**), suggesting that customers are equally likely to leave feedback regardless of delivery performance.
-
----
-
-## Insight
-
-Delivery delays have a direct and measurable impact on customer satisfaction.
-
-The results suggest that customer perception deteriorates rapidly once delays begin, with review scores dropping sharply after only a few days of delay.
-
-Because more than **92% of orders are delivered on time**, the marketplace maintains strong overall satisfaction levels. However, the relatively small share of delayed orders generates a disproportionate amount of negative feedback.
-
-Therefore, reducing delays could have a significant impact on customer experience without necessarily requiring improvements across the entire operation.
-# 7. Business Impact of Delivery Delays
-
-## Business Question
-
-**Do delivery delays negatively affect customer retention?**
-
----
-
-## KPI 1 - Customer Distribution by Delay Experience
-
-| Customer Group | Total Customers | % of Total Customers |
-|:---|---:|---:|
-| NEVER_DELAYED | 85,584 | 0.92 |
-| DELAYED_AT_LEAST_ONCE | 7,772 | 0.08 |
-
----
-
-## KPI 2 - Repurchase Rate After Experiencing a Delay
-
-| Repurchase Status | Total Customers | % of Delayed Customers |
-|:---|---:|---:|
-| DID_NOT_RETURN_AFTER_DELAY | 7,584 | 98.00% |
-| RETURNED_AFTER_DELAY | 188 | 2.00% |
-
----
-
-## KPI 3 - Average Number of Orders per Customer by Delay Experience
-
-| Customer Group | Number of Users | % of Total Customers | Average Number of Orders |
-|:---|---:|---:|---:|
-| NEVER_DELAYED | 85,584 | 0.92 | 1.03 |
-| DELAYED_AT_LEAST_ONCE | 7,772 | 0.08 | 1.05 |
-
----
-
-## Key Findings
-
-- Most customers never experience delivery problems. Approximately **92% of customers** belong to the `NEVER_DELAYED` group, while only **8%** experience at least one delayed order.
-- Although delayed customers represent a relatively small share of the customer base, they exhibit extremely low repurchase rates after their first delayed order.
-- Among customers who experienced at least one delay, **98% never placed another order after their first delayed purchase**, while only **2% returned and purchased again**.
-- This result suggests a strong association between poor delivery experiences and lower customer retention.
-- Customers who experienced delays show a slightly higher average number of orders (**1.05**) than customers who never experienced delays (**1.03**).
-- However, the difference between both groups is minimal and does not indicate a meaningful difference in purchase frequency.
-
----
-
-## Insight
-
-Delivery delays appear to be associated with customer attrition rather than with lower purchasing frequency.
-
-Only a minority of customers experience delays, but those who do rarely place another order after their first delayed purchase. While this analysis does not prove causality, it suggests that poor delivery experiences may negatively influence customer retention.
-
-Combined with the previous sections, these findings indicate that delivery delays are not only an operational issue or a source of customer dissatisfaction. They may also represent a potential threat to customer loyalty.
-
-Consequently, the regions, sellers and product categories with the highest delayed delivery rates are likely to be the greatest contributors to customer loss and should therefore be prioritized for operational improvement.
