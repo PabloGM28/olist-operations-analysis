@@ -1,10 +1,14 @@
 # Olist Operations Analytics
 
-## Project Overview
+Business Analytics project using SQL and the Brazilian Olist e-commerce dataset to investigate how delivery delays affect customer satisfaction, customer retention and overall business performance.
 
-This project analyzes the Brazilian E-Commerce Public Dataset by Olist to understand how operational inefficiencies impact customer satisfaction and business performance.
+---
 
-The analysis is performed using SQL in Google BigQuery and Tableau, following a structured business analytics approach.
+## Business Problem
+
+Operational inefficiencies can damage customer experience and reduce customer loyalty.
+
+This project investigates whether delivery delays negatively affect customer satisfaction and customer retention, and identifies the regions, sellers and product categories that contribute most to those failures.
 
 ---
 
@@ -14,160 +18,113 @@ The analysis is performed using SQL in Google BigQuery and Tableau, following a 
 
 ---
 
-## Project Objective
-
-Identify whether delivery inefficiencies negatively affect customer experience and determine which regions, sellers and product categories are associated with poor operational performance.
-
----
-
 ## Dataset
 
-Brazilian E-Commerce Public Dataset by Olist
+**Source:** Olist Brazilian E-Commerce Public Dataset (Kaggle)
 
-Source:
-https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+The dataset contains approximately 100,000 e-commerce orders placed between 2016 and 2018 across multiple Brazilian states.
 
----
+Main tables used:
 
-## Business Definition
-
-### Operational Inefficiency
-
-An order is considered operationally inefficient when the actual delivery date exceeds the estimated delivery date promised to the customer.
-
-```text
-actual_delivery_date > estimated_delivery_date
-```
-
-This definition focuses on the customer-facing delivery promise rather than internal logistics responsibility.
-
----
-
-## Data Cleaning & Inclusion Criteria
-
-To ensure consistency throughout the analysis, only delivered orders containing the information required to evaluate delivery performance will be included.
-
-### Excluded Orders
-
-Orders will be excluded if:
-
-* `order_estimated_delivery_date` is NULL.
-* `order_delivered_customer_date` is NULL.
-
-These fields are required to determine whether an order was delivered on time.
-
-### Included Orders
-
-Orders with missing values in other fields will remain in the dataset unless those fields are required for a specific analysis.
-
-This approach ensures that all business metrics are calculated using only the information necessary to answer the original business question.
-
----
-
-## Methodology
-
-The project follows a business-first approach:
-
-1. Define the business question.
-2. Define business concepts and inclusion criteria.
-3. Identify the required tables and relationships.
-4. Answer each business question individually using SQL.
-5. Interpret each result before moving to the next question.
-6. Build Tableau dashboards to communicate the findings.
-
-The analysis will be conducted sequentially, question by question and KPI by KPI.
-
----
-
-## Main Business Questions
-
-### 1. Delivery Performance
-
-**How efficient is the delivery process overall?**
-
-### 2. Geographic Analysis
-
-**Which regions experience the worst delivery performance?**
-
-### 3. Seller Analysis
-
-**Which sellers contribute most to delivery inefficiencies?**
-
-### 4. Product Category Analysis
-
-**Which product categories experience the worst operational performance?**
-
-### 5. Customer Satisfaction
-
-**Do delivery delays negatively impact customer review scores?**
-
-### 6. Business Impact
-
-**How do operational inefficiencies affect overall business performance?**
-
----
-
-## Main KPIs
-
-### Delivery KPIs
-
-* Average Delivery Time
-* Average Delay Time
-* Delayed Orders (%)
-* On-Time Delivery Rate
-
-### Customer KPIs
-
-* Average Review Score
-* Percentage of Low Reviews (1–2 stars)
-
-### Business KPIs
-
-* Total Orders
-* Revenue
-* Orders by Region
-* Revenue by Seller
+* Orders
+* Customers
+* Order Items
+* Reviews
+* Product Categories
 
 ---
 
 ## Tools Used
 
-* Google BigQuery
-* SQL
-* Tableau
+* SQL (Google BigQuery)
 * GitHub
+* Markdown
+
+Future versions:
+
+* Tableau
+
+---
+
+## Project Structure
+
+### 1. Dataset Understanding
+
+Understand the dataset and perform data cleaning.
+
+### 2. Overall Delivery Performance
+
+Evaluate overall delivery efficiency.
+
+### 3. Customer Satisfaction Analysis
+
+Measure the impact of delivery delays on customer reviews.
+
+### 4. Business Impact of Delivery Delays
+
+Analyze whether delays affect customer retention and future purchasing behavior.
+
+### 5. Geographic Analysis
+
+Identify the regions contributing most to delivery failures.
+
+### 6. Seller Analysis
+
+Identify the sellers contributing most to delivery failures.
+
+### 7. Product Category Analysis
+
+Identify the product categories contributing most to delivery failures.
+
+---
+
+## Key Findings
+
+* **91.89%** of orders are delivered on time.
+
+* Delayed orders receive significantly lower review scores (**2.6 vs 4.3**).
+
+* Customers who experience delays rarely place another order after their first delayed purchase.
+
+* Delivery failures are concentrated rather than systemic.
+
+* Rio de Janeiro emerges as the most relevant underperforming region from a business perspective.
+
+* A subset of sellers contributes disproportionately to delivery problems.
+
+* Certain product categories generate a large share of delayed deliveries.
+
+---
+
+## Conclusion
+
+Delivery delays are not a systemic problem across the marketplace, but they have a disproportionate impact on customer satisfaction and customer retention.
+
+Because these failures are concentrated in specific regions, sellers and product categories, targeted operational improvements could significantly improve customer experience without requiring changes across the entire operation.
 
 ---
 
 ## Repository Structure
 
 ```text
-data/
-
 sql/
-01_data_understanding.sql
-02_delivery_performance.sql
-03_geographic_analysis.sql
-04_seller_analysis.sql
-05_product_analysis.sql
-06_customer_satisfaction.sql
-07_business_impact.sql
+├── 01_data_understanding.sql
+├── 02_delivery_performance.sql
+├── 03_customer_satisfaction_analysis.sql
+├── 04_business_impact_of_delays.sql
+├── 05_geographic_analysis.sql
+├── 06_seller_analysis.sql
+└── 07_product_category_analysis.sql
 
-tableau/
-
-outputs/
-
-README.md
+findings/
+└── project_findings.md
 ```
 
 ---
 
-## Project Status
+## Next Steps
 
-In progress.
-
-Current stage:
-
-```text
-Dataset loaded into BigQuery and project methodology defined.
-```
+* Build an interactive Tableau dashboard.
+* Create executive visualizations for business stakeholders.
+* Add operational recommendations based on the findings.
+* Expand the analysis with additional business metrics.
